@@ -23,6 +23,7 @@ namespace ProEventos.Api
         {
             services.AddDbContext<DataContext>(options => options.UseSqlite(Configuration.GetConnectionString("Default")));
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -53,6 +54,9 @@ namespace ProEventos.Api
 
             app.UseAuthorization();
 
+            app.UseCors(acess => acess.AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowAnyOrigin());
             app
                 .UseEndpoints(endpoints =>
                 {
