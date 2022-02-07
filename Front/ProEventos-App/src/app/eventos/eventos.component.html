@@ -1,7 +1,47 @@
-<h1>Eventos do component</h1>
+<h3>Eventos do component</h3>
+<hr>
 
-<div *ngFor="let n of evento">
-  <p>{{n.Local}}</p>
-  <p>{{n.Tema}}</p>
-  <hr>
-</div>
+<form action="" class="form-inline">
+  <div class="form-group mb-2">
+    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th (click)="mostrar_esconder_Imagem()">
+        <button class="btn btn-outline-dark btn-sm">
+         {{!mostrarImagem ? 'Mostar': 'Esconder'}}
+        </button>
+      </th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoa</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="evento">
+    <tr *ngFor="let e of evento">
+      <td>{{e.id}}</td>
+      <td>{{e.imagem}}</td>
+      <td>{{e.tema}}</td>
+      <td>{{e.local}}</td>
+      <td>{{e.data}}</td>
+      <td>{{e.qtdPessoas}}</td>
+      <td>{{e.lote}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!evento">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum evento encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>

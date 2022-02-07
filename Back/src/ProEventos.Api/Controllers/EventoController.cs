@@ -1,7 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProEventos.Api.Data;
+using ProEventos.Api.Models.Interfaces;
+using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace ProEventos.Api.Controllers
 {
@@ -9,16 +10,27 @@ namespace ProEventos.Api.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-        private readonly DataContext _context;
+        private IEventoService _eventoService;
 
-        public EventoController(DataContext context)
+        public EventoController(IEventoService eventoService)
         {
-            _context = context;
+            _eventoService = eventoService;
         }
 
-        public Task<IActionResult> GetAll()
+        [HttpGet]
+        [Route("/api/evento")]
+        public async Task<ActionResult> GetAll()
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid) return BadRequest(ModelState); //if modelstave not valide return BadRequest
+
+            try
+            {
+                return Ok(await _eventoService.GetAll());
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
     }
 }
