@@ -1,20 +1,19 @@
 <h3>Eventos do component</h3>
 <hr>
 
-<form action="" class="form-inline">
+<div class="form-inline">
   <div class="form-group mb-2">
-    <input type="text" class="form-control mr-2" placeholder="buscar">
-    <button class="btn btn-outline-success">Buscar</button>
+    <label class="mr-2">Filtro</label>
+    <input type="text" class="form-control mr-2" placeholder="buscar" [(ngModel)]="filtroLista">
   </div>
-</form>
-
+</div>
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th>#</th>
       <th (click)="mostrar_esconder_Imagem()">
         <button class="btn btn-outline-dark btn-sm">
-         {{!mostrarImagem ? 'Mostar': 'Esconder'}}
+          {{!mostrarImagem ? 'Mostar': 'Esconder'}}
         </button>
       </th>
       <th>Tema</th>
@@ -34,7 +33,10 @@
       <td>{{e.data}}</td>
       <td>{{e.qtdPessoas}}</td>
       <td>{{e.lote}}</td>
-      <td></td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!evento">
