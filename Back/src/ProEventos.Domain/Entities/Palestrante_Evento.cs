@@ -1,0 +1,10 @@
+namespace ProEventos.Domain.Entities
+{
+    public class Palestrante_Evento : BaseEntity
+    {
+        public int PalestranteId { get; set; }
+        public Palestrante Palestrante { get; set; }
+        public int EventoId { get; set; }
+        public Evento Evento { get; set; }
+    }
+}

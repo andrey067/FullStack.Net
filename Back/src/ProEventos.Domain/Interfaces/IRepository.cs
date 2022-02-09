@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ProEventos.Domain.Entities;
 
-namespace ProEventos.Api.Models.Interfaces
+namespace ProEventos.Domain.Interfaces
 {
     public interface IRepository<T> where T : BaseEntity
     {

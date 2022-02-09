@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using ProEventos.Api.Models;
 using ProEventos.Api.Models.Interfaces;
 
-namespace ProEventos.Api.Services
+namespace ProEventos.Services
 {
     public class EventoService : IEventoService
     {

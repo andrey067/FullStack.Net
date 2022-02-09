@@ -5,10 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ProEventos.Api.Data;
-using ProEventos.Api.Data.Repository;
-using ProEventos.Api.Models.Interfaces;
-using ProEventos.Api.Services;
 
 namespace ProEventos.Api
 {

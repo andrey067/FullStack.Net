@@ -1,10 +1,10 @@
-using System;
+
 using System.Collections.Generic;
 using Bogus;
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Api.Models;
+using ProEventos.Domain.Entities;
 
-namespace ProEventos.Api.Data.Seeds
+namespace ProEventos.Persistence.Seeds
 {
     public static class EventoSeeds
     {

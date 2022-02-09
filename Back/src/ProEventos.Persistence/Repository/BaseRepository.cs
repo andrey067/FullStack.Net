@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Api.Models;
-using ProEventos.Api.Models.Interfaces;
+using ProEventos.Domain.Entities;
+using ProEventos.Domain.Interfaces;
 
-namespace ProEventos.Api.Data.Repository
+namespace ProEventos.Persistence.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
