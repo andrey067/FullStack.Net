@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using ProEventos.Api.Models.Interfaces;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -10,12 +9,6 @@ namespace ProEventos.Api.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-        private IEventoService _eventoService;
-
-        public EventoController(IEventoService eventoService)
-        {
-            _eventoService = eventoService;
-        }
 
         [HttpGet]
         [Route("/api/evento")]
@@ -25,7 +18,7 @@ namespace ProEventos.Api.Controllers
 
             try
             {
-                return Ok(await _eventoService.GetAll());
+                return Ok();
             }
             catch (ArgumentException ex)
             {

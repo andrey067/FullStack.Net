@@ -1,7 +1,7 @@
+using ProEventos.Domain.Entities;
+using ProEventos.Domain.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ProEventos.Api.Models;
-using ProEventos.Api.Models.Interfaces;
 
 namespace ProEventos.Services
 {
