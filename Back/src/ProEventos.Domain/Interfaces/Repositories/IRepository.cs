@@ -12,7 +12,7 @@ namespace ProEventos.Domain.Interfaces
         Task<T> SelectAsync(int id);
         Task<IEnumerable<T>> SelectAsyncAll();
         Task<bool> ExistAsync(int id);
-        void DeleteRange<T>(T[] entity) where T : BaseEntity;
+        void DeleteRange(T[] entity);
         Task<bool> SaveChangesAsync();
     }
 }

@@ -39,7 +39,7 @@ namespace ProEventos.Persistence.Repository
             if (await ExistAsync(item.Id))
                 throw new Exception("Item já cadastrado");
             try
-            {               
+            {
                 item.CreateAt = DateTime.UtcNow;
                 _dataSet.Add(item);
                 await _context.SaveChangesAsync();
@@ -100,14 +100,14 @@ namespace ProEventos.Persistence.Repository
             return await _dataSet.AnyAsync(p => p.Id.Equals(id));
         }
 
-        public void DeleteRange<T1>(T1[] entity) where T1 : BaseEntity
+        public async Task<bool> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public Task<bool> SaveChangesAsync()
+        public void DeleteRange(T[] entity)
         {
-            throw new NotImplementedException();
+            _context.RemoveRange(entity);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ProEventos.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,31 +9,62 @@ using System.Threading.Tasks;
 
 namespace ProEventos.Persistence.Repository
 {
-    public class EventoRepository : IEventoRepository
+    public class EventoRepository : BaseRepository<Evento>, IEventoRepository
     {
-        public Task<bool> DeleteAsync(int id)
+        private readonly DataContext _context;
+        private readonly DbSet<Evento> _eventoContext;
+        public EventoRepository(DataContext context) : base(context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _eventoContext = context.Set<Evento>();
         }
 
-        public void DeleteRange<T>(T[] entity) where T : BaseEntity
+        public void Add(Evento evento)
         {
-            throw new NotImplementedException();
+            _eventoContext.Add(evento);
         }
 
-        public Task<bool> ExistAsync(int id)
+        public void Delete(Evento evento)
         {
-            throw new NotImplementedException();
+            _eventoContext.Remove(evento);
         }
 
-        public Task<Evento[]> GetAllEventosAsync(string tema, bool includePalestrante)
+        public async Task<Evento[]> GetAllEventosAsync(string tema, bool includePalestrante = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Evento> query = _eventoContext
+                                    .Include(e => e.Lotes)
+                                    .Include(e => e.RedeSociais);
+
+            if (includePalestrante)
+            {
+                query = query
+                .Include(e => e.PalestrantesEventos)
+                .ThenInclude(pe => pe.Palestrante);
+            }
+
+            query = query.OrderBy(e => e.Id)
+                         .Where(ev => ev.Tema.ToLower().Contains(tema.ToLower()));
+
+            return await query.ToArrayAsync();
         }
 
-        public Task<Evento[]> GetAllEventosByIdAsync(string tema, bool includePalestrante)
+        public async Task<Evento> GetAllEventosByIdAsync(int EventoId, bool includePalestrante)
         {
-            throw new NotImplementedException();
+            IQueryable<Evento> query = _eventoContext
+                                    .Include(e => e.Lotes)
+                                    .Include(e => e.RedeSociais);
+
+            if (includePalestrante)
+            {
+                query = query
+                .Include(e => e.PalestrantesEventos)
+                .ThenInclude(pe => pe.Palestrante);
+            }
+
+            query = query.OrderBy(e => e.Id)
+                         .Where(ev => ev.Id == EventoId);
+
+            return await query.FirstOrDefaultAsync();
         }
 
         public Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante)
@@ -40,44 +72,9 @@ namespace ProEventos.Persistence.Repository
             throw new NotImplementedException();
         }
 
-        public Task<Palestrante[]> GetAllPalestrantesAsync(string palestrante, bool includeEventos)
+        public void Update(Evento evento)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Palestrante[]> GetAllPalestrantesByIdAsync(string palestrante, bool includeEventos)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Palestrante[]> GetAllPalestrantesByNameAsync(string palestrante, bool includeEventos)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Evento> InsertAsync(Evento item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Evento> SelectAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Evento>> SelectAsyncAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Evento> UpdateAsync(Evento item)
-        {
-            throw new NotImplementedException();
+            _eventoContext.Update(evento);
         }
     }
 }
