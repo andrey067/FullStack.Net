@@ -99,5 +99,15 @@ namespace ProEventos.Persistence.Repository
         {
             return await _dataSet.AnyAsync(p => p.Id.Equals(id));
         }
+
+        public void DeleteRange<T1>(T1[] entity) where T1 : BaseEntity
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
