@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain.Entities;
 using ProEventos.Persistence.Seeds;
 
-namespace ProEventos.Persistence
+namespace ProEventos.Persistence.Context
 {
     public class DataContext : DbContext
     {

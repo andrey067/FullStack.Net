@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
 using ProEventos.Domain.Entities;
 
-namespace ProEventos.Domain.Interfaces.Repositories
+namespace ProEventos.Domain.Interfaces.Services
 {
-    public interface IPalestrantesRepository : IRepository<Palestrante>
+    public interface IPalestranteService
     {
-        void Add(Evento evento);
-        void Update(Evento evento);
-        void Delete(Evento evento);  
+        void Add(Palestrante evento);
+        void Update(Palestrante evento);
+        void Delete(Palestrante evento);
         Task<Palestrante[]> GetAllPalestrantesByNameAsync(string palestrante, bool includeEventos);
         Task<Palestrante[]> GetAllPalestrantesAsync(string palestrante, bool includeEventos);
         Task<Palestrante> GetAllPalestrantesByIdAsync(int palestranteId, bool includeEventos);

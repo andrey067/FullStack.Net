@@ -1,64 +1,86 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces.Repositories;
+using ProEventos.Persistence.Context;
 
 namespace ProEventos.Persistence.Repository
 {
-    
-    public class PalestrantesRepository : IPalestrantesRepository
+    public class PalestrantesRepository : BaseRepository<Palestrante>, IPalestrantesRepository
     {
-        public Task<bool> DeleteAsync(int id)
+        private readonly DataContext _context;
+        private readonly DbSet<Palestrante> _palestranteContext;
+
+        public PalestrantesRepository(DataContext context, DbSet<Palestrante> palestranteContext) : base(context)
+        {
+            _context = context;
+            _palestranteContext = palestranteContext;
+        }
+
+        public void Add(Evento evento)
         {
             throw new System.NotImplementedException();
         }
 
-        public void DeleteRange(Palestrante[] entity)
+        public void Delete(Evento evento)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> ExistAsync(int id)
+        public async Task<Palestrante[]> GetAllPalestrantesAsync(string palestrante, bool includeEventos)
         {
-            throw new System.NotImplementedException();
+            IQueryable<Palestrante> query = _palestranteContext
+                                            .Include(e => e.RedeSociais);
+
+            if (includeEventos)
+            {
+                query = query
+                .Include(e => e.PalestrantesEventos)
+                .ThenInclude(pe => pe.Evento);
+            }
+
+            query = query.OrderBy(e => e.Id);
+
+            return await query.ToArrayAsync();
         }
 
-        public Task<Palestrante[]> GetAllPalestrantesAsync(string palestrante, bool includeEventos)
+        public async Task<Palestrante> GetAllPalestrantesByIdAsync(int palestranteId, bool includeEventos)
         {
-            throw new System.NotImplementedException();
+            IQueryable<Palestrante> query = _palestranteContext
+                                            .Include(e => e.RedeSociais);
+
+            if (includeEventos)
+            {
+                query = query
+                .Include(e => e.PalestrantesEventos)
+                .ThenInclude(pe => pe.Evento);
+            }
+
+            query = query.OrderBy(e => e.Id).Where(p => p.Id == palestranteId);
+
+            return await query.FirstOrDefaultAsync();
         }
 
-        public Task<Palestrante[]> GetAllPalestrantesByIdAsync(string palestrante, bool includeEventos)
+        public async Task<Palestrante[]> GetAllPalestrantesByNameAsync(string palestrante, bool includeEventos)
         {
-            throw new System.NotImplementedException();
+            IQueryable<Palestrante> query = _palestranteContext
+                                            .Include(p => p.RedeSociais);
+
+            if (includeEventos)
+            {
+                query = query
+                .Include(e => e.PalestrantesEventos)
+                .ThenInclude(pe => pe.Evento);
+            }
+
+            query = query.OrderBy(e => e.Id).Where(p => p.Nome.ToLower().Contains(palestrante.ToLower()));
+
+            return await query.ToArrayAsync();
         }
 
-        public Task<Palestrante[]> GetAllPalestrantesByNameAsync(string palestrante, bool includeEventos)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<Palestrante> InsertAsync(Palestrante item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> SaveChangesAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<Palestrante> SelectAsync(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<IEnumerable<Palestrante>> SelectAsyncAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<Palestrante> UpdateAsync(Palestrante item)
+        public void Update(Evento evento)
         {
             throw new System.NotImplementedException();
         }

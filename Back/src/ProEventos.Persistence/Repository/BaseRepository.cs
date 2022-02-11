@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces;
+using ProEventos.Persistence.Context;
 
 namespace ProEventos.Persistence.Repository
 {

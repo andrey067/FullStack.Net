@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces.Repositories;
+using ProEventos.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;

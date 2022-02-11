@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProEventos.Domain.Interfaces;
-using ProEventos.Persistence;
+using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Repository;
 
 namespace ProEventos.CrossCutting.DependencyInjection
