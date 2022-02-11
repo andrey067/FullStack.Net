@@ -6,11 +6,13 @@ namespace ProEventos.Domain.Interfaces
 {
     public interface IEventoService
     {
-        void Add(Evento evento);
-        void Update(Evento evento);
-        void Delete(Evento evento);        
+        Task<Evento> Get(int id);
+        Task<IEnumerable<Evento>> GetAll();
+        Task<Evento> AddEvento(Evento model);
+        Task<Evento> UpdateEvento(int eventoId, Evento model);
+        Task<bool> DeleteEvento(int eventoId);
         Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
-        Task<Evento[]> GetAllEventosAsync(string tema, bool includePalestrante);
+        Task<List<Evento>> GetAllEventosAsync(bool includePalestrante = false);
         Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);
     }
 }

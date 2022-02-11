@@ -1,4 +1,5 @@
 ﻿using ProEventos.Domain.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ProEventos.Domain.Interfaces.Repositories
@@ -10,7 +11,7 @@ namespace ProEventos.Domain.Interfaces.Repositories
         void Delete(Evento evento);        
         //Evento
         Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
-        Task<Evento[]> GetAllEventosAsync(string tema, bool includePalestrante);
+        Task<List<Evento>> GetAllEventosAsync(bool includePalestrante);
         Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);        
     }
 }

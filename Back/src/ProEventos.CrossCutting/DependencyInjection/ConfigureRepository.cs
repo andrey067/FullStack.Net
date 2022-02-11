@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProEventos.Domain.Interfaces;
+using ProEventos.Domain.Interfaces.Repositories;
+using ProEventos.Persistence;
 using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Repository;
 
@@ -12,6 +14,8 @@ namespace ProEventos.CrossCutting.DependencyInjection
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            serviceCollection.AddScoped<IEventoRepository, EventoRepository>();
+            serviceCollection.AddScoped<IPalestrantesRepository, PalestrantesRepository>();
             serviceCollection.AddDbContext<DataContext>(options => options.UseSqlite(configuration.GetConnectionString("Default")));
         }
     }
