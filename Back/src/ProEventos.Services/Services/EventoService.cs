@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 namespace ProEventos.Services
 {
     public class EventoService : IEventoService
-    {]
+    {
         private readonly IEventoRepository _eventoRepository;
         private readonly IRepository<Evento> _repository;
-        private readonly IEventoRepository _eventoRepository;
 
         public EventoService(IRepository<Evento> repository, IEventoRepository eventoRepository = null)
         {
