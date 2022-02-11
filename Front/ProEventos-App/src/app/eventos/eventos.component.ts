@@ -1,16 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Evento } from '../models/Evento';
+import { EventoService } from '../services/evento.service';
 
 
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.scss']
+  styleUrls: ['./eventos.component.scss'],
 })
+
 export class EventosComponent implements OnInit {
 
-  public evento: any;
-  public eventosfiltrados: any = [];
+  public eventos: Evento[] = [];
+  public eventosfiltrados: Evento[] = [];
   mostrarImagem: boolean = true;
   private _filtroLista: string = '';
 
@@ -20,31 +22,30 @@ export class EventosComponent implements OnInit {
 
   public set filtroLista(value: string) {
     this._filtroLista = value;
-    this.evento = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.evento;
+    this.eventos = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
   }
 
-  public filtrarEventos(filtrarPor: string): any {
+  public filtrarEventos(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
-    return this.evento.filter(
+    return this.eventos.filter(
       (ev: { tema: string; local: string; }) => ev.tema.toLocaleLowerCase().indexOf(filtrarPor) ||
         ev.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1);
   }
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
+  constructor(private eventoService: EventoService) { }
+  public ngOnInit(): void {
     this.getEventos();
   }
 
-  mostrar_esconder_Imagem() {
+  public mostrar_esconder_Imagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
 
   public getEventos(): void {
-    this.http.get('https://localhost:5001/api/evento').subscribe(
-      reponse => {
-        this.evento = reponse,
-          this.eventosfiltrados = this.evento
+    this.eventoService.getEventos().subscribe(
+      (eventos: Evento[]) => {
+        this.eventos = eventos,
+          this.eventosfiltrados = this.eventos
       },
       error => console.log(error)
     )
