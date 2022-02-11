@@ -8,8 +8,11 @@ namespace ProEventos.Domain.Interfaces
     {
         Task<Evento> Get(int id);
         Task<IEnumerable<Evento>> GetAll();
-        // Task<UserDtoCreateResult> Post(UserDtoCreate entity);
-        // Task<UserDtoUpdateResult> Put(UserDtoUpdate entity);
-        // Task<bool> Delete(Guid id);
+        Task<Evento> AddEvento(Evento model);
+        Task<Evento> UpdateEvento(int eventoId, Evento model);
+        Task<bool> DeleteEvento(int eventoId);
+        Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
+        Task<List<Evento>> GetAllEventosAsync(bool includePalestrante = false);
+        Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);
     }
 }

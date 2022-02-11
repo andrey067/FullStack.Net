@@ -1,19 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.Api", "ProEventos.Api\ProEventos.Api.csproj", "{4CAB383B-ED22-4E74-9190-77907FDC2047}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Api", "ProEventos.Api\ProEventos.Api.csproj", "{4CAB383B-ED22-4E74-9190-77907FDC2047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.Application", "ProEventos.Application\ProEventos.Application.csproj", "{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Domain", "ProEventos.Domain\ProEventos.Domain.csproj", "{081D26F5-6031-492E-A7FC-EFE47A5AC49E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.Domain", "ProEventos.Domain\ProEventos.Domain.csproj", "{081D26F5-6031-492E-A7FC-EFE47A5AC49E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Persistence", "ProEventos.Persistence\ProEventos.Persistence.csproj", "{A7ADDA21-2265-4908-BAE3-CCC9DD345B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.Persistence", "ProEventos.Persistence\ProEventos.Persistence.csproj", "{A7ADDA21-2265-4908-BAE3-CCC9DD345B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Services", "ProEventos.Services\ProEventos.Services.csproj", "{DDA8A4AD-64B5-4EA1-8227-A5683D806940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.Services", "ProEventos.Services\ProEventos.Services.csproj", "{DDA8A4AD-64B5-4EA1-8227-A5683D806940}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos.CrossCutting", "ProEventos.CrossCutting\ProEventos.CrossCutting.csproj", "{007F86DF-58B5-4480-AC25-2D71AC0826C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.CrossCutting", "ProEventos.CrossCutting\ProEventos.CrossCutting.csproj", "{007F86DF-58B5-4480-AC25-2D71AC0826C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4CAB383B-ED22-4E74-9190-77907FDC2047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,18 +35,6 @@ Global
 		{4CAB383B-ED22-4E74-9190-77907FDC2047}.Release|x64.Build.0 = Release|Any CPU
 		{4CAB383B-ED22-4E74-9190-77907FDC2047}.Release|x86.ActiveCfg = Release|Any CPU
 		{4CAB383B-ED22-4E74-9190-77907FDC2047}.Release|x86.Build.0 = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|x64.Build.0 = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Debug|x86.Build.0 = Debug|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|x64.ActiveCfg = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|x64.Build.0 = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|x86.ActiveCfg = Release|Any CPU
-		{65151E21-E9FE-43A4-A9B8-07C903C9C8C5}.Release|x86.Build.0 = Release|Any CPU
 		{081D26F5-6031-492E-A7FC-EFE47A5AC49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{081D26F5-6031-492E-A7FC-EFE47A5AC49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081D26F5-6031-492E-A7FC-EFE47A5AC49E}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -100,5 +83,11 @@ Global
 		{007F86DF-58B5-4480-AC25-2D71AC0826C2}.Release|x64.Build.0 = Release|Any CPU
 		{007F86DF-58B5-4480-AC25-2D71AC0826C2}.Release|x86.ActiveCfg = Release|Any CPU
 		{007F86DF-58B5-4480-AC25-2D71AC0826C2}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AC7CF92-E35D-4564-ACF6-BCBC8F7F917E}
 	EndGlobalSection
 EndGlobal
