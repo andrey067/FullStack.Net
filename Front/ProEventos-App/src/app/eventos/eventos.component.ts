@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Evento } from '../models/Evento';
 import { EventoService } from '../services/evento.service';
 
@@ -11,17 +12,18 @@ import { EventoService } from '../services/evento.service';
 
 export class EventosComponent implements OnInit {
 
+  modalRef?: BsModalRef;
   public eventos: Evento[] = [];
   public eventosfiltrados: Evento[] = [];
   mostrarImagem: boolean = true;
-  private _filtroLista: string = '';
+  private filtroListado: string = '';
 
   public get filtroLista(): string {
-    return this._filtroLista;
+    return this.filtroListado;
   }
 
   public set filtroLista(value: string) {
-    this._filtroLista = value;
+    this.filtroListado = value;
     this.eventos = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
   }
 
@@ -32,7 +34,9 @@ export class EventosComponent implements OnInit {
         ev.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1);
   }
 
-  constructor(private eventoService: EventoService) { }
+  constructor(
+    private eventoService: EventoService,
+    private modalService: BsModalService) { }
   public ngOnInit(): void {
     this.getEventos();
   }
@@ -42,12 +46,24 @@ export class EventosComponent implements OnInit {
   }
 
   public getEventos(): void {
-    this.eventoService.getEventos().subscribe(
-      (eventos: Evento[]) => {
-        this.eventos = eventos,
+    this.eventoService.getEventos().subscribe({
+      next: (eventosResponse: Evento[]) => {
+        this.eventos = eventosResponse,
           this.eventosfiltrados = this.eventos
       },
-      error => console.log(error)
-    )
+      error: (error: any) => console.log(error)
+    });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(): void {
+    this.modalRef?.hide();
+  }
+
+  decline(): void {
+    this.modalRef?.hide();
   }
 }

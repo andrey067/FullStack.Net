@@ -24,22 +24,22 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody *ngIf="evento">
-    <tr *ngFor="let e of evento">
+  <tbody *ngIf="eventos">
+    <tr *ngFor="let e of eventos">
       <td>{{e.id}}</td>
-      <td>{{e.imagem}}</td>
+      <td>{{e.imagemURL}}</td>
       <td>{{e.tema}}</td>
       <td>{{e.local}}</td>
-      <td>{{e.data}}</td>
+      <td>{{e.dataEvento}}</td>
       <td>{{e.qtdPessoas}}</td>
-      <td>{{e.lote}}</td>
+      <td>{{e.lotes[0].nome}}</td>
       <td>
-        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+        <button type="button" class="btn btn-primary btn-sm mr-2" tooltip="Editar" placement="auto">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir" placement="auto" (click)="openModal(template)">Excluir</button>
       </td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!evento">
+  <tfoot *ngIf="!eventos">
     <tr>
       <td colspan="8" class="text-center">
         <h4>Nenhum evento encontrado</h4>
@@ -47,3 +47,11 @@
     </tr>
   </tfoot>
 </table>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Deseja excluir esse evento</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
