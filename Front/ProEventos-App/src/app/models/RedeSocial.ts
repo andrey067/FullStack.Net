@@ -1,6 +1,5 @@
-import { BaseEntity } from "./BaseEntity";
-
-export interface RedeSocial extends BaseEntity {
+export interface RedeSocial {
+  id: number;
   nome: string;
   URL: string;
   eventoId: number;

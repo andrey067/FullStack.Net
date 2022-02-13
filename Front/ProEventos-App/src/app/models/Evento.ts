@@ -1,17 +1,17 @@
-import { BaseEntity } from "./BaseEntity";
+import { RedeSocial } from './RedeSocial';
 import { Lote } from "./Lote";
-import { Palestrante } from "./Palestrante";
-import { RedeSocial } from "./RedeSocial";
+import { Palestrante } from './Palestrante';
+import { BaseEntity } from './BaseEntity';
 
 export interface Evento extends BaseEntity {
   local: string;
-  dataEvento: Date;
+  dataEvento?: Date;
   tema: string;
   qtdPessoas: number;
   imagemURL: string;
   telefone: string;
   email: string;
   lotes: Lote[];
-  redeSociais: RedeSocial[];
+  redesSociais: RedeSocial[];
   palestrantesEventos: Palestrante[];
 }

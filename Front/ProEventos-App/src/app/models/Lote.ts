@@ -1,12 +1,12 @@
-import { BaseEntity } from "./BaseEntity";
 import { Evento } from "./Evento";
 
-export interface Lote extends BaseEntity{
+export interface Lote {
+  id: number;
   nome: string;
   preco: number;
-  dataIncio: Date;
-  dataFim: Date;
+  dataInicio?: Date;
+  dataFim?: Date;
   quantidade: number;
   eventoId: number;
-  evento: Evento[];
+  evento: Evento;
 }
