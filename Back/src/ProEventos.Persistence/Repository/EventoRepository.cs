@@ -64,7 +64,7 @@ namespace ProEventos.Persistence.Repository
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante)
+        public async Task<List<Evento>> GetAllEventosByTemaAsync(string tema, bool includePalestrante)
         {
             IQueryable<Evento> query = _eventoContext
                                     .Include(e => e.Lotes)
@@ -80,7 +80,7 @@ namespace ProEventos.Persistence.Repository
             query = query.OrderBy(e => e.Id)
                          .Where(ev => ev.Tema.ToLower().Contains(tema.ToLower()));
 
-            return await query.ToArrayAsync();
+            return await query.ToListAsync();
         }
 
         public void Update(Evento evento)

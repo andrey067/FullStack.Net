@@ -1,0 +1,36 @@
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.deps.json
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.pdb
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.AssemblyReference.cache
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfoInputs.cache
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfo.cs
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.CoreCompileInputs.cache
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
+D:\Estudo\FullStack .NET + Angular\Back\src\ProEventos.Domain\obj\Debug\net5.0\refint\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.deps.json
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.pdb
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.AssemblyReference.cache
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfoInputs.cache
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfo.cs
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.CoreCompileInputs.cache
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\refint\ProEventos.Domain.dll
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
+D:\Estudo\FullStack .NET + Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.deps.json
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.dll
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.pdb
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.AssemblyReference.cache
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfoInputs.cache
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfo.cs
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.CoreCompileInputs.cache
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
+E:\Cursos\ProEventos-em-Vue\Back\src\ProEventos.Domain\obj\Debug\net5.0\refint\ProEventos.Domain.dll

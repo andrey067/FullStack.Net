@@ -10,7 +10,7 @@ namespace ProEventos.Domain.Interfaces.Repositories
         void Update(Evento evento);
         void Delete(Evento evento);        
         //Evento
-        Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
+        Task<List<Evento>> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
         Task<List<Evento>> GetAllEventosAsync(bool includePalestrante);
         Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);        
     }
