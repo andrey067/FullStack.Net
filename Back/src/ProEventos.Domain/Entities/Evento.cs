@@ -12,8 +12,8 @@ namespace ProEventos.Domain.Entities
         public string ImagemURL { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public IEnumerable<Lote> Lotes { get; set; }
-        public IEnumerable<RedeSocial> RedeSociais { get; set; }
-        public IEnumerable<Palestrante_Evento> PalestrantesEventos { get; set; }
+        public List<Lote> Lotes { get; set; }
+        public List<RedeSocial> RedeSociais { get; set; }
+        public List<Palestrante_Evento> PalestrantesEventos { get; set; }
     }
 }

@@ -27,9 +27,9 @@ namespace ProEventos.Services
         {
             try
             {
-                _eventoRepository.Add(_mapper.Map<Evento>(model));
+                var eventoSalvo = await _repository.InsertAsync(_mapper.Map<Evento>(model));
                 if (await _repository.SaveChangesAsync())
-                    return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(model.Id, false));
+                    return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(eventoSalvo.Id, false));
                 return null;
             }
             catch (Exception ex)
@@ -56,8 +56,10 @@ namespace ProEventos.Services
         public async Task<EventoDto> Get(int id)
         {
             var entity = await _repository.SelectAsync(id);
-            var eventoDto = _mapper.Map<EventoDto>(entity);
-            return eventoDto;
+            if(entity != null )
+                return _mapper.Map<EventoDto>(entity);      
+            //TODO - Tratar Erro
+            return null;
         }
 
         public async Task<IEnumerable<EventoDto>> GetAll()
@@ -73,12 +75,11 @@ namespace ProEventos.Services
             {
                 var evento = await _eventoRepository.GetAllEventosByIdAsync(eventoId, false);
                 if (evento == null) return null;
-                _eventoRepository.Update(_mapper.Map<Evento>(model));
-
-                model.Id = evento.Id;
+                var eventoSalvo = await _repository.UpdateAsync(_mapper.Map<Evento>(model));
+                
 
                 if (await _repository.SaveChangesAsync())
-                    return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(model.Id, false));
+                    return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(eventoSalvo.Id, false));
                 return null;
             }
             catch (Exception ex)

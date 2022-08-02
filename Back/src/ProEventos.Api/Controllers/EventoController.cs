@@ -1,6 +1,5 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services.Dtos;
 using System;
@@ -10,8 +9,8 @@ using System.Threading.Tasks;
 namespace ProEventos.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class EventoController : ControllerBase
+    [Route("/eventos")]
+    public class EventoController : BaseController
     {
         private readonly IEventoService _eventoService;
 
@@ -37,7 +36,7 @@ namespace ProEventos.Api.Controllers
             }
         }
 
-        [HttpGet("[controller]/{id}")]
+        [HttpGet("/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             try
@@ -52,7 +51,7 @@ namespace ProEventos.Api.Controllers
             }
         }
 
-        [HttpGet("[controller]/tema/{tema}")]
+        [HttpGet("/tema/{tema}")]
         public async Task<IActionResult> GetByTema(string tema)
         {
             try
@@ -85,7 +84,7 @@ namespace ProEventos.Api.Controllers
 
         }
 
-        [HttpDelete("[controller]/{id}")]
+        [HttpDelete("/{id}")]
         public async Task<IActionResult> DeletarEvento(int id)
         {
             try

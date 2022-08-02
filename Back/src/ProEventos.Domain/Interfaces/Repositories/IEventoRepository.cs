@@ -6,9 +6,9 @@ namespace ProEventos.Domain.Interfaces.Repositories
 {
     public interface IEventoRepository : IRepository<Evento>
     {
-        void Add(Evento evento);
-        void Update(Evento evento);
-        void Delete(Evento evento);        
+        //void Add(Evento evento);
+        //void Update(Evento evento);
+        //void Delete(Evento evento);        
         //Evento
         Task<List<Evento>> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
         Task<List<Evento>> GetAllEventosAsync(bool includePalestrante);

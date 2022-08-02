@@ -14,6 +14,7 @@ namespace ProEventos.CrossCutting.DependencyInjection
         {
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IEventoRepository, EventoRepository>();
+            serviceCollection.AddScoped<ILotesRepository, LostesRepostory>();
             serviceCollection.AddScoped<IPalestrantesRepository, PalestrantesRepository>();
             serviceCollection.AddDbContext<DataContext>(options => options.UseSqlite(configuration.GetConnectionString("Default")));
         }

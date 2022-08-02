@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l+r9oQSls8oARHBbIcf3gGHwIIkHr7J/n8a7epFRgtl0IsftM7NSrosKTaA5kFIn+wl82mrVPb0okD72BMaNbQ==",
+  "dgSpecHash": "V5Mo35rV4t70c8o7Sx7cAVRzL78xmAocOBvFkpb6sqFUpDauV3vr92/E69VtHoP+JDYKf/Z1WqzLIT4KroDYyg==",
   "success": true,
-  "projectFilePath": "E:\\Cursos\\ProEventos-em-Vue\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+  "projectFilePath": "D:\\Estudo\\FullStack.Net_Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JofAI+SVMH8VZ5e44IS38onzSD/f5xCm3FMIsN/OK6AQc2ffELI31Ms20dqDbycsTB+KuMxAew5kpQxWSDg0ug==",
+  "dgSpecHash": "qo5E6JPvY3e/q1MsRovy4kCmxrFDmH7z5nM9D0/aNLTGUhSPsRe/QNCdTJ0X2gcAB6K0eJqq9/1jGnrISL/lGQ==",
   "success": true,
-  "projectFilePath": "E:\\Cursos\\ProEventos-em-Vue\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
+  "projectFilePath": "D:\\Estudo\\FullStack.Net_Angular\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andre\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "C:\\Users\\3970\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\3970\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

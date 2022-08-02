@@ -10,24 +10,9 @@ using System.Threading.Tasks;
 namespace ProEventos.Persistence.Repository
 {
     public class EventoRepository : BaseRepository<Evento>, IEventoRepository
-    {
-        private readonly DataContext _context;
+    {        
         private readonly DbSet<Evento> _eventoContext;
-        public EventoRepository(DataContext context) : base(context)
-        {
-            _context = context;
-            _eventoContext = context.Set<Evento>();
-        }
-
-        public void Add(Evento evento)
-        {
-            _eventoContext.Add(evento);
-        }
-
-        public void Delete(Evento evento)
-        {
-            _eventoContext.Remove(evento);
-        }
+        public EventoRepository(DataContext context) : base(context) => _eventoContext = context.Set<Evento>();
 
         public async Task<List<Evento>> GetAllEventosAsync(bool includePalestrante = false)
         {
@@ -81,11 +66,6 @@ namespace ProEventos.Persistence.Repository
                          .Where(ev => ev.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToListAsync();
-        }
-
-        public void Update(Evento evento)
-        {
-            _eventoContext.Update(evento);
-        }
+        }        
     }
 }

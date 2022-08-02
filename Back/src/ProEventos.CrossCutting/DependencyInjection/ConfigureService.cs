@@ -4,6 +4,8 @@ using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services;
 using ProEventos.Services.Dtos;
+using ProEventos.Services.Interfaces;
+using ProEventos.Services.Services;
 
 namespace ProEventos.CrossCutting.DependencyInjection
 {
@@ -12,6 +14,7 @@ namespace ProEventos.CrossCutting.DependencyInjection
         public static void ConfigureDependenciesServices(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IEventoService, EventoService>();
+            serviceCollection.AddTransient<ILotesService, LotesServices>();
         }
 
         public static void RegisterAutoMapper(IServiceCollection services)
