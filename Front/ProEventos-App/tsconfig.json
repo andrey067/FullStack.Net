@@ -21,7 +21,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "@app/*": ["src/app/*"],
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
     }
   },
   "angularCompilerOptions": {

@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './components/eventos/eventos.component';
@@ -30,6 +29,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 
+
 defineLocale('de', ptBrLocale);
 
 @NgModule({
@@ -56,8 +56,8 @@ defineLocale('de', ptBrLocale);
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
@@ -68,7 +68,8 @@ defineLocale('de', ptBrLocale);
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
       progressBar: true
-    })
+    }),
+    NgxSpinnerModule,
   ],
   providers: [
     EventoService

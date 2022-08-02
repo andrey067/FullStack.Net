@@ -37,7 +37,7 @@ export class EventoService {
 
   public deleteEvento(id: number): Observable<any> {
     return this.http
-      .delete(`${this.baseURL}/${id}`)
+      .delete(`${this.baseURL}/Evento/${id}`)
       // .pipe(take(1));
   }
 }

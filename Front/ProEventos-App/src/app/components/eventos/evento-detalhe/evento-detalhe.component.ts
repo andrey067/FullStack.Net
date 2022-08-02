@@ -20,6 +20,7 @@ export class EventoDetalheComponent implements OnInit {
   modoEditar = false;
   loading = false;
   imagemURL = 'assets/img/upload.png';
+  estadoSalvar = 'post';
 
   get lotes(): FormArray {
     return this.form.get('lotes') as FormArray;
@@ -41,9 +42,9 @@ export class EventoDetalheComponent implements OnInit {
   public carregarEvento(): void {
     this.eventoId = Number(this.activatedRouter.snapshot.paramMap.get('id'));
     console.log(this.eventoId)
-
+    this.spinner.show();
     if (this.eventoId !== null && this.eventoId !== 0) {
-      this.spinner.show();
+
 
       // this.estadoSalvar = 'put';
 
@@ -137,6 +138,29 @@ export class EventoDetalheComponent implements OnInit {
       containerClass: 'theme-default',
       showWeekNumbers: false,
     };
+  }
+
+  public salvarEvento(): void {
+    this.spinner.show();
+    if (this.form.valid) {
+      this.evento =
+        this.estadoSalvar === 'post'
+          ? { ...this.form.value }
+          : { id: this.evento.id, ...this.form.value };
+
+      this.eventoService.post(this.evento).subscribe(
+        (eventoRetorno: Evento) => {
+          this.toastr.success('Evento salvo com Sucesso!', 'Sucesso');
+          this.router.navigate([`eventos/detalhe/${eventoRetorno.id}`]);
+        },
+        (error: any) => {
+          console.error(error);
+          this.spinner.hide();
+          this.toastr.error('Error ao salvar evento', 'Erro');
+        },
+        () => this.spinner.hide()
+      );
+    }
   }
 
 
