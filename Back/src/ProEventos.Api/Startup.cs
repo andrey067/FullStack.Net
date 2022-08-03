@@ -5,7 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ProEventos.CrossCutting.DependencyInjection;
-
+using ProEventos.Persistence;
+using ProEventos.Persistence.Seeds;
 
 namespace ProEventos.Api
 {
@@ -61,11 +62,20 @@ namespace ProEventos.Api
             app.UseCors(acess => acess.AllowAnyHeader()
                                         .AllowAnyMethod()
                                         .AllowAnyOrigin());
-            app
-                .UseEndpoints(endpoints =>
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                                                                .CreateScope())
+            {
+                using (var context = service.ServiceProvider.GetService<DataContext>())
                 {
-                    endpoints.MapControllers();
-                });
+                    EventoSeeds.Eventos(context);
+                }
+            }
         }
     }
 }

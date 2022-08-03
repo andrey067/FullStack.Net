@@ -8,33 +8,27 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\3970\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Estudo\\FullStack.Net_Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+      "projectUniqueName": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
       "projectName": "ProEventos.Domain",
-      "projectPath": "D:\\Estudo\\FullStack.Net_Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
-      "packagesPath": "C:\\Users\\3970\\.nuget\\packages\\",
-      "outputPath": "D:\\Estudo\\FullStack.Net_Angular\\Back\\src\\ProEventos.Domain\\obj\\",
+      "projectPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\3970\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "D:\\.nuget\\packages": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://ucdb-dev.pkgs.visualstudio.com/_packaging/UCDB/nuget/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
@@ -66,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

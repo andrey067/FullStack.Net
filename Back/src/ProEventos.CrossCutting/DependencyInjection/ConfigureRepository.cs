@@ -18,5 +18,10 @@ namespace ProEventos.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IPalestrantesRepository, PalestrantesRepository>();
             serviceCollection.AddDbContext<DataContext>(options => options.UseSqlite(configuration.GetConnectionString("Default")));
         }
+
+        public static void AddSeeds(DataContext dataContext)
+        {
+
+        }
     }
 }

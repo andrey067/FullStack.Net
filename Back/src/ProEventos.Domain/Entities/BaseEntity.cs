@@ -1,11 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProEventos.Domain.Entities
 {
     public abstract class BaseEntity
     {
-        [Key]
+        [Key]        
         public int Id { get; set; }
         private DateTime? _createAt;
         public DateTime? CreateAt

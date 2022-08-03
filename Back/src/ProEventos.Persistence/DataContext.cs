@@ -22,12 +22,9 @@ namespace ProEventos.Persistence
             modelBuilder.Entity<Evento>()
                 .HasMany(e => e.RedeSociais)
                 .WithOne(rs => rs.Evento)
-                .OnDelete(DeleteBehavior.Cascade);            
+                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Palestrante>().HasMany(e => e.RedeSociais).WithOne(rs => rs.Palestrante).OnDelete(DeleteBehavior.Cascade);
-
-
-            EventoSeeds.Eventos(modelBuilder);
+            modelBuilder.Entity<Palestrante>().HasMany(e => e.RedeSociais).WithOne(rs => rs.Palestrante).OnDelete(DeleteBehavior.Cascade);                     
         }
     }
 }

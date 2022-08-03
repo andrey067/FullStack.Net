@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProEventos.Domain.Entities
 {
@@ -8,7 +9,7 @@ namespace ProEventos.Domain.Entities
         public decimal Preco { get; set; }
         public DateTime DataIncio { get; set; }
         public DateTime DataFim { get; set; }
-        public int Quantidade { get; set; }
+        public int Quantidade { get; set; }               
         public int EventoId { get; set; }
         public Evento Evento { get; set; }
     }
