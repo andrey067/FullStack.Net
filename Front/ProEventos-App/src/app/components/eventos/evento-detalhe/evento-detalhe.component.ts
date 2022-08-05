@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from 'src/app/models/evento';
 import { EventoService } from '@app/services/eventoService';
 import { environment } from '@environments/environment';
+import { Lote } from '@app/models/lote';
+import { LoteService } from '@app/services/loteService';
 
 
 @Component({
@@ -37,7 +39,8 @@ export class EventoDetalheComponent implements OnInit {
     private router: Router,
     private spinner: NgxSpinnerService,
     private eventoService: EventoService,
-  ) {}
+    private loteService: LoteService
+  ) { }
 
   public carregarEvento(): void {
     this.eventoId = Number(this.activatedRouter.snapshot.paramMap.get('id'));
@@ -56,7 +59,7 @@ export class EventoDetalheComponent implements OnInit {
             this.evento = { ...evento };
             this.form.patchValue(this.evento);
             if (this.evento.imagemURL !== '') {
-              this.imagemURL = environment.apiUrl+ 'resources/images/' + this.evento.imagemURL;
+              this.imagemURL = environment.apiUrl + 'resources/images/' + this.evento.imagemURL;
             }
             // this.carregarLotes();
           },
@@ -96,7 +99,7 @@ export class EventoDetalheComponent implements OnInit {
     this.form.reset();
   }
 
-  criaLote(lote: any): FormGroup {
+  criaLote(lote: Lote): FormGroup {
     return this.fb.group({
       id: [lote.id],
       nome: [lote.nome, Validators.required],
@@ -116,7 +119,7 @@ export class EventoDetalheComponent implements OnInit {
   }
 
   adicionarLote(): void {
-    this.lotes.push(this.criaLote({ id: 0 }));
+    this.lotes.push(this.criaLote({ id: 0 } as Lote));
   }
 
   adicionarRedeSocial(): void {
@@ -163,5 +166,26 @@ export class EventoDetalheComponent implements OnInit {
     }
   }
 
+  public salvarLotes(): void {
+    if (this.form.controls['lotes'].valid) {
+      this.spinner.show();
+      this.loteService
+        .saveLote(this.eventoId!, this.form.value.lotes)
+        .subscribe(
+          () => {
+            this.toastr.success('Lotes salvos com Sucesso!', 'Sucesso!');
+          },
+          (error: any) => {
+            this.toastr.error('Erro ao tentar salvar lotes.', 'Erro');
+            console.error(error);
+          }
+        )
+        .add(() => this.spinner.hide());
+    }
+  }
+
+  public cssValidator(campoForm: FormControl | AbstractControl): any {
+    return { 'is-invalid': campoForm.errors && campoForm.touched };
+  }
 
 }

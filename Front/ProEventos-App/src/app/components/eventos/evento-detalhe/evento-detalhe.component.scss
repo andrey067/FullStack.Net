@@ -15,3 +15,22 @@
   border-bottom: 1px solid #dee2e6;
   border-left: 1px solid #dee2e6;
 }
+
+.card-evento {
+  position: sticky;
+  --default-height: 25px;
+  top: var(--default-height);
+}
+
+.card-evento-view {
+  position: sticky;
+  top: 10px;
+}
+
+.card-img-block {
+  img {
+    cursor: pointer;
+    border-radius: 3px 3px 0 0;
+    width: 100%;
+  }
+}
