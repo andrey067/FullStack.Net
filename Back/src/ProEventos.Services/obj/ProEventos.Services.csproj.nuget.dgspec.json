@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj": {}
+    "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj": {}
   },
   "projects": {
-    "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
+    "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
         "projectName": "ProEventos.Domain",
-        "projectPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+        "projectPath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\obj\\",
+        "outputPath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,21 +59,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj": {
+    "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
         "projectName": "ProEventos.Services",
-        "projectPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
+        "projectPath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Services\\ProEventos.Services.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Services\\obj\\",
+        "outputPath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,14 +85,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
-                "projectPath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj"
+              "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj": {
+                "projectPath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj"
               }
             }
           }
@@ -118,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

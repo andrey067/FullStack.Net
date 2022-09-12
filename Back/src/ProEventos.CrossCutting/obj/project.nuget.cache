@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a2sU5BGM04xKDJqdypF39qVJyGCYEo4g3tuPe3ChBxzkKR4GI04ICXD6taJvxVhoGDQIH5qbPR+KiydNYk6vgw==",
+  "dgSpecHash": "AuqME9mRMaOPAtaFmTDPBYQEPuAjb+xEmmQBqCS7glcgrTY3r9eqQq30RYo+qavB+8EtxftLz0hGdKNepbvPEQ==",
   "success": true,
-  "projectFilePath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj",
+  "projectFilePath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\bogus\\34.0.1\\bogus.34.0.1.nupkg.sha512",

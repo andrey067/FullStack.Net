@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sjzwxzKD+L2A4Y6qkM0Ry0yG18zJ3hEqtJjj1NvvhyHWAVsGbdrtv2fHPLRPJRuG76K8nua9ZkJvZY++xFX8Qw==",
+  "dgSpecHash": "V1yvnuzAP7z7zRB1ABG7yFa5Qv5Bu5SJgT8wRLMGWFuGBAH48eyae+yuVbz8WEO6Cre+tpoLRC/qsu0Cv2W1hQ==",
   "success": true,
-  "projectFilePath": "E:\\Cursos\\ProEventos-em-Angular\\Back\\src\\ProEventos.Api\\ProEventos.Api.csproj",
+  "projectFilePath": "C:\\Users\\andre\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Api\\ProEventos.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\bogus\\34.0.1\\bogus.34.0.1.nupkg.sha512",
