@@ -1,5 +1,8 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using ProEventos.Core.Notifications.Implementation;
+using ProEventos.Core.Notifications.Interfaces;
 using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services;
@@ -11,10 +14,10 @@ namespace ProEventos.CrossCutting.DependencyInjection
 {
     public class ConfigureService
     {
-        public static void ConfigureDependenciesServices(IServiceCollection serviceCollection)
+        public static void ConfigureDependenciesServices(IServiceCollection services)
         {
-            serviceCollection.AddTransient<IEventoService, EventoService>();
-            serviceCollection.AddTransient<ILotesService, LotesServices>();
+            services.AddTransient<IEventoService, EventoService>();
+            services.AddTransient<ILotesService, LotesServices>();
         }
 
         public static void RegisterAutoMapper(IServiceCollection services)
@@ -27,6 +30,24 @@ namespace ProEventos.CrossCutting.DependencyInjection
                 cfg.CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             });
             services.AddSingleton(autoMapperConfig.CreateMapper());
+        }
+
+        public static void SwaggerConfiguration(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "ProEventos.Api",
+                    Version = "v1"
+                });
+            });
+        }
+
+
+        public static void NotificationConfiguration(IServiceCollection services)
+        {
+            services.AddScoped<INotifications, Notifications>();
         }
     }
 }

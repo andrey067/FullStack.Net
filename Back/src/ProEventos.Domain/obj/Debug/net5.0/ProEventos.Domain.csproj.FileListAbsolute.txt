@@ -70,3 +70,15 @@ C:\Users\andre\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\
 C:\Users\andre\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
 C:\Users\andre\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
 C:\Users\andre\Cursos\FullStack.Net\Back\src\ProEventos.Domain\bin\Debug\net5.0\ref\ProEventos.Domain.dll
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.deps.json
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.dll
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\bin\Debug\net5.0\ProEventos.Domain.pdb
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.AssemblyReference.cache
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfoInputs.cache
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.AssemblyInfo.cs
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.csproj.CoreCompileInputs.cache
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.dll
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ref\ProEventos.Domain.dll
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\ProEventos.Domain.pdb
+D:\Cursos\FullStack.Net\Back\src\ProEventos.Domain\obj\Debug\net5.0\refint\ProEventos.Domain.dll

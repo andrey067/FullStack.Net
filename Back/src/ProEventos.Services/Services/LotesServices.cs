@@ -1,12 +1,12 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces.Repositories;
 using ProEventos.Services.Dtos;
 using ProEventos.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProEventos.Services.Services
 {
@@ -26,7 +26,7 @@ namespace ProEventos.Services.Services
             try
             {
                 var lote = _mapper.Map<Lote>(model);
-                lote.Evento.Id = eventoId;
+                //lote.Evento.Id = eventoId;
 
                 await _lotesRepository.InsertAsync(lote);
 

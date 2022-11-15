@@ -12,6 +12,6 @@ namespace ProEventos.Domain.Interfaces.Repositories
         //Evento
         Task<List<Evento>> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
         Task<List<Evento>> GetAllEventosAsync(bool includePalestrante);
-        Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);        
+        Task<List<Evento>> GetAllEventosByIdAsync(int eventoId, bool includePalestrante);        
     }
 }

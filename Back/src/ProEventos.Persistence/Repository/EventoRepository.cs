@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProEventos.Persistence.Repository
 {
     public class EventoRepository : BaseRepository<Evento>, IEventoRepository
-    {        
+    {
         private readonly DbSet<Evento> _eventoContext;
         public EventoRepository(DataContext context) : base(context) => _eventoContext = context.Set<Evento>();
 
@@ -30,7 +30,7 @@ namespace ProEventos.Persistence.Repository
             return await query.ToListAsync();
         }
 
-        public async Task<Evento> GetAllEventosByIdAsync(int EventoId, bool includePalestrante)
+        public async Task<List<Evento>> GetAllEventosByIdAsync(int EventoId, bool includePalestrante)
         {
             IQueryable<Evento> query = _eventoContext
                                     .Include(e => e.Lotes)
@@ -46,7 +46,7 @@ namespace ProEventos.Persistence.Repository
             query = query.OrderBy(e => e.Id)
                          .Where(ev => ev.Id == EventoId);
 
-            return await query.FirstOrDefaultAsync();
+            return await query.ToListAsync();
         }
 
         public async Task<List<Evento>> GetAllEventosByTemaAsync(string tema, bool includePalestrante)
@@ -66,6 +66,6 @@ namespace ProEventos.Persistence.Repository
                          .Where(ev => ev.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToListAsync();
-        }        
+        }
     }
 }
