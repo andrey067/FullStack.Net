@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Core\\ProEventos.Core.csproj": {}
+    "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj": {}
   },
   "projects": {
-    "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Core\\ProEventos.Core.csproj": {
+    "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Core\\ProEventos.Core.csproj",
-        "projectName": "ProEventos.Core",
-        "projectPath": "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Core\\ProEventos.Core.csproj",
+        "projectUniqueName": "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj",
+        "projectName": "ProEventos.UnitTest",
+        "projectPath": "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.CrossCutting\\ProEventos.CrossCutting.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "D:\\Cursos\\FullStack.Net\\Back\\src\\ProEventos.Core\\obj\\",
+        "outputPath": "D:\\Cursos\\FullStack.Net\\Back\\src\\Tests\\ProEventos.UnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -33,7 +33,17 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Cursos\\FullStack.Net\\Back\\ProEventos.Api\\ProEventos.Api.csproj": {
+                "projectPath": "D:\\Cursos\\FullStack.Net\\Back\\ProEventos.Api\\ProEventos.Api.csproj"
+              },
+              "D:\\Cursos\\FullStack.Net\\Back\\ProEventos.Domain\\ProEventos.Domain.csproj": {
+                "projectPath": "D:\\Cursos\\FullStack.Net\\Back\\ProEventos.Domain\\ProEventos.Domain.csproj"
+              },
+              "D:\\Cursos\\FullStack.Net\\Back\\src\\Fixtures\\ProEventos.Fixtures.csproj": {
+                "projectPath": "D:\\Cursos\\FullStack.Net\\Back\\src\\Fixtures\\ProEventos.Fixtures.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -46,13 +56,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "FluentValidation": {
+            "AutoMapper": {
               "target": "Package",
-              "version": "[11.2.2, )"
+              "version": "[12.0.0, )"
             },
-            "Microsoft.AspNetCore.Http.Abstractions": {
+            "Bogus": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[34.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

@@ -6,7 +6,7 @@ namespace ProEventos.Domain.Entities
 {
     public class Evento : BaseEntity
     {
-        private Evento() { }
+        public Evento() { }
         public Evento(string local, DateTime? dataEvento, string tema, int qtdPessoas, string imagemURL, string telefone, string email)
         {
             Local = local;

@@ -50,7 +50,10 @@ using (var service = app.Services.GetRequiredService<IServiceScopeFactory>().Cre
     {
         var isMigrationNeeded = context.Database.GetPendingMigrations().Any();
         if (isMigrationNeeded)
+        {
+            context.Database.Migrate();
             EventoSeeds.Eventos(context);
+        }
     }
 }
 

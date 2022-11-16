@@ -60,6 +60,7 @@ namespace ProEventos.Fixtures.Eventos
                 .RuleFor(e => e.Email, e => e.Person.Email).Generate();
             return fakerEventodto;
         }
+
         public static List<Evento> GetEventos()
         {
             var n = Randomizer.Seed.Next(1, 20);
@@ -68,7 +69,7 @@ namespace ProEventos.Fixtures.Eventos
 
             for (var i = 1; i < n; i++)
             {
-                var fakerEventodto = new Faker<Evento>()
+                var fakerEvento = new Faker<Evento>()
                 .RuleFor(l => l.Local, l => l.Name.FullName())
                 .RuleFor(d => d.DataEvento, d => d.Date.Future())
                 .RuleFor(t => t.Tema, t => t.Company.CompanyName())
@@ -76,9 +77,7 @@ namespace ProEventos.Fixtures.Eventos
                 .RuleFor(img => img.ImagemURL, img => img.Image.DataUri(150, 200))
                 .RuleFor(tel => tel.Telefone, tel => tel.Phone.PhoneNumber())
                 .RuleFor(e => e.Email, e => e.Person.Email).Generate();
-                //.RuleFor(e => e.CreateAt, DateTime.Now)
-                //.RuleFor(e => e.Lotes, new List<Lote>()).Generate();
-                eventos.Add(fakerEventodto);
+                eventos.Add(fakerEvento);
             }
 
             eventos.ForEach(evento =>
