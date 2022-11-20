@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Interfaces;
@@ -30,6 +28,13 @@ namespace ProEventos.Api.Controllers
             return Ok(eventos);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<EventoDto>> InsertEvento([FromServices] IEventoService _eventoService, EventoDto evento)
+        {
+            var eventos = await _eventoService.AddEvento(evento);
+            return Ok(eventos);
+        }
+
         [HttpGet("/tema/{tema}")]
         public async Task<IActionResult> GetByTema([FromServices] IEventoService _eventoService, string tema)
         {
@@ -37,14 +42,6 @@ namespace ProEventos.Api.Controllers
             if (eventos == null) return NoContent();
 
             return Ok(eventos);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> InsertEvento([FromServices] IEventoService _eventoService, EventoDto evento)
-        {
-            var eventos = await _eventoService.AddEvento(evento);
-            return Ok(eventos);
-
         }
 
         [HttpDelete("/{id}")]

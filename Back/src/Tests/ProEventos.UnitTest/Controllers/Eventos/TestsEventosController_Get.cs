@@ -8,10 +8,9 @@ using ProEventos.Interfaces;
 using ProEventos.Services.Dtos;
 using Xunit;
 
-
-namespace ProEventos.UnitTest.Controllers
+namespace ProEventos.UnitTest.Eventos.Controllers
 {
-    public class TestsEventosController
+    public class TestsEventosController_Get
     {
         [Fact(DisplayName = "GetAllEventosAsync OnSuccess ResturnsCode200")]
         [Trait("GET", "Eventos")]

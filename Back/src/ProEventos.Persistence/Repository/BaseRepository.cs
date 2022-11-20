@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +40,6 @@ namespace ProEventos.Persistence.Repository
                 throw new Exception("Item já cadastrado");
             try
             {
-                item.CreateAt = DateTime.UtcNow;
                 _dataSet.Add(item);
                 await _context.SaveChangesAsync();
             }
@@ -83,7 +82,7 @@ namespace ProEventos.Persistence.Repository
                 if (result == null)
                     return null;
                 item.UpdateAt = DateTime.UtcNow;
-                item.CreateAt = result.CreateAt;
+
 
                 _context.Entry(result).CurrentValues.SetValues(item);
                 await _context.SaveChangesAsync();

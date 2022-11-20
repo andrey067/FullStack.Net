@@ -36,5 +36,13 @@ namespace Helpers.Eventos
             mockEventosService.Setup(service => service.Get(eventoDtoFake.Id)).ReturnsAsync(() => null);
             return (mockEventosService, eventoDtoFake);
         }
+
+        public static (Mock<IEventoService>, EventoDto) SetupPostEventos()
+        {
+            var mockEventosService = new Mock<IEventoService>();
+            var fakedto = EventosFixture.PostEvento();
+            mockEventosService.Setup(service => service.AddEvento(fakedto)).ReturnsAsync(fakedto);
+            return (mockEventosService, fakedto);
+        }
     }
 }

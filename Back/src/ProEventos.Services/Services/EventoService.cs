@@ -28,24 +28,17 @@ namespace ProEventos.Services
 
         public async Task<EventoDto> AddEvento(EventoDto model)
         {
-            try
+            var entity = _mapper.Map<Evento>(model);
+            if (entity.Invalid)
             {
-                var entity = _mapper.Map<Evento>(model);
-                if (entity.Invalid)
-                {
-                    _notifications.AddNotification(entity.Errors);
-                    return null;
-                }
-
-                var eventoSalvo = await _repository.InsertAsync(entity);
-                if (await _repository.SaveChangesAsync())
-                    return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(eventoSalvo.Id, false));
+                _notifications.AddNotification(entity.Errors);
                 return null;
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao adicionar Evento:" + ex.Message);
-            }
+
+            var eventoSalvo = await _repository.InsertAsync(entity);
+            if (await _repository.SaveChangesAsync())
+                return _mapper.Map<EventoDto>(await _eventoRepository.GetAllEventosByIdAsync(eventoSalvo.Id, false));
+            return null;
         }
 
         public async Task<bool> DeleteEvento(int eventoId)

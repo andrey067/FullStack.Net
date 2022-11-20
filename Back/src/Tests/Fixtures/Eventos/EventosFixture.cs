@@ -70,6 +70,7 @@ namespace ProEventos.Fixtures.Eventos
             for (var i = 1; i < n; i++)
             {
                 var fakerEvento = new Faker<Evento>()
+                .RuleFor(l => l.Id, i)
                 .RuleFor(l => l.Local, l => l.Name.FullName())
                 .RuleFor(d => d.DataEvento, d => d.Date.Future())
                 .RuleFor(t => t.Tema, t => t.Company.CompanyName())
@@ -98,6 +99,21 @@ namespace ProEventos.Fixtures.Eventos
             });
 
             return eventos;
+        }
+
+        public static EventoDto PostEvento()
+        {
+            var fakerEventodto = new Faker<EventoDto>()
+                .RuleFor(l => l.Local, l => l.Name.FullName())
+                .RuleFor(d => d.DataEvento, d => d.Date.Future())
+                .RuleFor(t => t.Tema, t => t.Company.CompanyName())
+                .RuleFor(qtd => qtd.QtdPessoas, qtd => qtd.Random.Number(0, 100))
+                .RuleFor(img => img.ImagemURL, img => img.Image.DataUri(150, 200))
+                .RuleFor(tel => tel.Telefone, tel => tel.Phone.PhoneNumber())
+                .RuleFor(e => e.Email, e => e.Person.Email)
+                .RuleFor(e => e.CreateAt, DateTime.Now)
+                .RuleFor(e => e.Lotes, new List<LoteDto>()).Generate();
+            return fakerEventodto;
         }
     }
 }

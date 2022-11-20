@@ -13,12 +13,7 @@ namespace ProEventos.Domain.Entities
         [Key]
         public int Id { get; private set; }
 
-        private DateTime? _createAt;
-        public DateTime? CreateAt
-        {
-            get { return _createAt; }
-            set { _createAt = (value == null ? DateTime.UtcNow : value); }
-        }
+        private DateTime CreateAt => DateTime.UtcNow;
 
         public DateTime? UpdateAt { get; set; }
 

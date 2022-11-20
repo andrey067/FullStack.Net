@@ -60,7 +60,7 @@ namespace ProEventos.Api.Utilities
             return new ResultViewModel
             {
                 Message = "",
-                Success = false,
+                Success = true,
                 Data = obj
             };
         }

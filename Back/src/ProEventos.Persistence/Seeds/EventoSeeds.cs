@@ -23,7 +23,6 @@ namespace ProEventos.Persistence.Seeds
                 .RuleFor(img => img.ImagemURL, img => img.Image.DataUri(150, 200))
                 .RuleFor(tel => tel.Telefone, tel => tel.Phone.PhoneNumber())
                 .RuleFor(e => e.Email, e => e.Person.Email).Generate();
-                //context.Set<Evento>().Add(fakerEvento);
                 eventos.Add(fakerEvento);
             }
             context.Set<Evento>().AddRange(eventos);
