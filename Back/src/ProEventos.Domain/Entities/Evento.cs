@@ -34,6 +34,6 @@ namespace ProEventos.Domain.Entities
         public List<RedeSocial> RedeSociais { get; set; }
         public List<Palestrante_Evento> PalestrantesEventos { get; set; }
 
-        public bool Validate() => base.Validate(new EventoValidate(), this);
+        public bool Validate() => Validate(new EventoValidate(), this);
     }
 }
