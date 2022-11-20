@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Interfaces;
-using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 
 namespace ProEventos.Api.Controllers
 {
@@ -29,9 +29,9 @@ namespace ProEventos.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<EventoDto>> InsertEvento([FromServices] IEventoService _eventoService, EventoDto evento)
+        public async Task<ActionResult<EventoDto>> InsertEvento([FromServices] IEventoService _eventoService, CreateEventoDto createEventoDto)
         {
-            var eventos = await _eventoService.AddEvento(evento);
+            var eventos = await _eventoService.AddEvento(createEventoDto);
             return Ok(eventos);
         }
 
@@ -47,7 +47,10 @@ namespace ProEventos.Api.Controllers
         [HttpDelete("/{id}")]
         public async Task<IActionResult> DeletarEvento([FromServices] IEventoService _eventoService, int id)
         {
-            var eventos = await _eventoService.DeleteEvento(id);
+            var deletarEvento = await _eventoService.DeleteEvento(id);
+
+            if (deletarEvento) return NoContent();
+
             return Ok("Deletado");
         }
 

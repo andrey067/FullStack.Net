@@ -1,4 +1,6 @@
-﻿namespace ProEventos.Services.Dtos
+﻿using ProEventos.Services.Dtos.Eventos;
+
+namespace ProEventos.Services.Dtos
 {
     public class RedeSocialDto
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ProEventos.Services.Dtos.Eventos;
 
 namespace ProEventos.Services.Dtos
 {

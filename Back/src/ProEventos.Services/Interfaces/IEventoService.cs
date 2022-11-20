@@ -1,5 +1,5 @@
 ﻿using ProEventos.Domain.Entities;
-using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,7 +9,7 @@ namespace ProEventos.Interfaces
     {
         Task<EventoDto> Get(int id);
         Task<IEnumerable<EventoDto>> GetAll();
-        Task<EventoDto> AddEvento(EventoDto model);
+        Task<EventoDto> AddEvento(CreateEventoDto model);
         Task<EventoDto> UpdateEvento(int eventoId, EventoDto model);
         Task<bool> DeleteEvento(int eventoId);
         Task<List<EventoDto>> GetAllEventosByTemaAsync(string tema, bool includePalestrante);

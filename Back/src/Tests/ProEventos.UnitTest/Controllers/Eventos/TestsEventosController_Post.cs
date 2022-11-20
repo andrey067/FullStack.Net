@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ProEventos.Api.Controllers;
-using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 using Xunit;
 
 namespace ProEventos.UnitTest.Eventos.Controllers

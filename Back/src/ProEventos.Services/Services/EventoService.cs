@@ -7,7 +7,7 @@ using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces;
 using ProEventos.Domain.Interfaces.Repositories;
 using ProEventos.Interfaces;
-using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 
 namespace ProEventos.Services
 {
@@ -26,9 +26,9 @@ namespace ProEventos.Services
             _notifications = notifications;
         }
 
-        public async Task<EventoDto> AddEvento(EventoDto model)
+        public async Task<EventoDto> AddEvento(CreateEventoDto eventDto)
         {
-            var entity = _mapper.Map<Evento>(model);
+            var entity = _mapper.Map<Evento>(eventDto);
             if (entity.Invalid)
             {
                 _notifications.AddNotification(entity.Errors);
@@ -43,17 +43,10 @@ namespace ProEventos.Services
 
         public async Task<bool> DeleteEvento(int eventoId)
         {
-            try
-            {
-                var evento = await _eventoRepository.GetAllEventosByIdAsync(eventoId, false);
-                if (evento == null) throw new Exception("Evento não foi encontrado");
+            var evento = await _eventoRepository.GetAllEventosByIdAsync(eventoId, false);
+            if (evento == null) return false;
 
-                return await _repository.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao deletar: " + ex.Message);
-            }
+            return await _repository.SaveChangesAsync();
         }
 
         public async Task<EventoDto> Get(int id)
@@ -125,17 +118,10 @@ namespace ProEventos.Services
 
         public async Task<List<EventoDto>> GetAllEventosByTemaAsync(string tema, bool includePalestrante)
         {
-            try
-            {
-                var eventos = await _eventoRepository.GetAllEventosByTemaAsync(tema, includePalestrante);
-                if (eventos == null) return null;
-                var eventoDto = _mapper.Map<List<EventoDto>>(eventos);
-                return eventoDto;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erro ao buscar:" + ex.Message);
-            }
+            var eventos = await _eventoRepository.GetAllEventosByTemaAsync(tema, includePalestrante);
+            if (eventos == null) return null;
+            var eventoDto = _mapper.Map<List<EventoDto>>(eventos);
+            return eventoDto;
         }
     }
 }

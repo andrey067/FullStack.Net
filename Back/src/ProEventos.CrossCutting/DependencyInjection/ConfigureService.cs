@@ -7,6 +7,7 @@ using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services;
 using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 using ProEventos.Services.Interfaces;
 using ProEventos.Services.Services;
 
@@ -22,12 +23,13 @@ namespace ProEventos.CrossCutting.DependencyInjection
 
         public static void RegisterAutoMapper(IServiceCollection services)
         {
-            var autoMapperConfig = new MapperConfiguration(cfg =>
+            var autoMapperConfig = new MapperConfiguration(configuration =>
             {
-                cfg.CreateMap<Evento, EventoDto>().ReverseMap();
-                cfg.CreateMap<Lote, LoteDto>().ReverseMap();
-                cfg.CreateMap<Palestrante, PalestranteDto>().ReverseMap();
-                cfg.CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
+                configuration.CreateMap<CreateEventoDto, EventoDto>();
+                configuration.CreateMap<Evento, EventoDto>().ReverseMap();
+                configuration.CreateMap<Lote, LoteDto>().ReverseMap();
+                configuration.CreateMap<Palestrante, PalestranteDto>().ReverseMap();
+                configuration.CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             });
             services.AddSingleton(autoMapperConfig.CreateMapper());
         }

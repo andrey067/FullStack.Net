@@ -1,7 +1,7 @@
 ﻿using Moq;
 using ProEventos.Fixtures.Eventos;
 using ProEventos.Interfaces;
-using ProEventos.Services.Dtos;
+using ProEventos.Services.Dtos.Eventos;
 
 namespace Helpers.Eventos
 {
@@ -40,9 +40,10 @@ namespace Helpers.Eventos
         public static (Mock<IEventoService>, EventoDto) SetupPostEventos()
         {
             var mockEventosService = new Mock<IEventoService>();
-            var fakedto = EventosFixture.PostEvento();
-            mockEventosService.Setup(service => service.AddEvento(fakedto)).ReturnsAsync(fakedto);
-            return (mockEventosService, fakedto);
+            var (createteEventoDto, eventoDto) = EventosFixture.PostEvento();
+
+            mockEventosService.Setup(service => service.AddEvento(createteEventoDto)).ReturnsAsync(eventoDto);
+            return (mockEventosService, eventoDto);
         }
     }
 }
