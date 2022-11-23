@@ -16,9 +16,16 @@ namespace ProEventos.Api.Filters
             {
                 case (int)HttpStatusCode.OK:
                     context.HttpContext.Response.ContentType = "application/json";
-                    var result = JsonConvert.SerializeObject(Responses.HttpStatusCodeOK(((OkObjectResult)context.Result).Value));
+                    var resultOK = JsonConvert.SerializeObject(Responses.HttpStatusCodeOK(((OkObjectResult)context.Result).Value));
 
-                    await context.HttpContext.Response.WriteAsync(result);
+                    await context.HttpContext.Response.WriteAsync(resultOK);
+                    break;
+
+                case (int)HttpStatusCode.NoContent:
+                    context.HttpContext.Response.ContentType = "application/json";
+                    var resultNoContent = JsonConvert.SerializeObject(Responses.HttpStatusCodeNoContent());
+
+                    await context.HttpContext.Response.WriteAsync(resultNoContent);
                     break;
 
                 default:

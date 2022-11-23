@@ -49,9 +49,9 @@ namespace ProEventos.Api.Controllers
         {
             var deletarEvento = await _eventoService.DeleteEvento(id);
 
-            if (deletarEvento) return NoContent();
+            if (!deletarEvento) return NoContent();
 
-            return Ok("Deletado");
+            return Ok(deletarEvento);
         }
 
         [HttpPut]

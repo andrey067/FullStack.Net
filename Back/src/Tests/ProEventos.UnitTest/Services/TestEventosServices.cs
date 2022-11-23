@@ -47,11 +47,11 @@ namespace ProEventos.UnitTest.Services
         public async Task InsertEventosAsync_Returns_Event()
         {
             //Arrange
-            var (mockEventosService, eventoDto) = IEventoServiceMock.SetupPostEventos();
+            var (mockEventosService, createEventoDto, eventoDto) = IEventoServiceMock.SetupPostEvento();
             _service = mockEventosService.Object;
 
             //Act
-            var result = await _service.AddEvento(eventoDto);
+            var result = await _service.AddEvento(createEventoDto);
 
             //Assert
             result.Should().BeOfType<EventoDto>();

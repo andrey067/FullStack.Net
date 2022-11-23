@@ -16,11 +16,11 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         public async Task Post_OnSuccess_ResturnsCode200()
         {
             //Arrange
-            var (mockEventosService, fakeDto) = IEventoServiceMock.SetupPostEventos();
+            var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
             var sut = new EventoController();
 
             //Act
-            var result = await sut.InsertEvento(mockEventosService.Object, fakeDto);
+            var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
 
             //Assert
             result.Result.Should().BeOfType<OkObjectResult>();
@@ -33,14 +33,14 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         public async Task Post_OnSuccess_InvokesUserServiceExactlyOnce()
         {
             //Arrange
-            var (mockEventosService, fakeDto) = IEventoServiceMock.SetupPostEventos();
+            var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
             var sut = new EventoController();
 
             //Act
-            var result = await sut.InsertEvento(mockEventosService.Object, fakeDto);
+            var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
 
             //Assert
-            mockEventosService.Verify(service => service.AddEvento(fakeDto), Times.Once());
+            mockEventosService.Verify(service => service.AddEvento(createEventoDto), Times.Once());
         }
 
         [Fact(DisplayName = "Post OnSuccess ReturnEvent")]
@@ -48,16 +48,16 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         public async Task Post_OnSuccess_ReturnsListOfEvents()
         {
             //Arrange
-            var (mockEventosService, fakeEventoDto) = IEventoServiceMock.SetupPostEventos();
+            var (mockEventosService, createEventoDto, fakeEventoDto) = IEventoServiceMock.SetupPostEvento();
             var sut = new EventoController();
 
             //Act
-            var result = await sut.InsertEvento(mockEventosService.Object, fakeEventoDto);
+            var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
 
             //Assert
             result.Result.Should().BeOfType<OkObjectResult>();
             var objectResulto = (OkObjectResult)result.Result!;
-            objectResulto.Value.Should().NotBeNull();
+            fakeEventoDto.Tema.Should().Be(fakeEventoDto.Tema);
             objectResulto.Value.Should().BeOfType<EventoDto>();
         }
     }

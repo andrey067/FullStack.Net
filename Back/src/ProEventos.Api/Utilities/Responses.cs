@@ -65,5 +65,15 @@ namespace ProEventos.Api.Utilities
             };
         }
 
+        public static ResultViewModel HttpStatusCodeNoContent()
+        {
+            return new ResultViewModel
+            {
+                Message = "Não foi encontrado",
+                Success = true,
+                Data = null
+            };
+        }
+
     }
 }

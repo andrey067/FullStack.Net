@@ -104,7 +104,7 @@ namespace ProEventos.Fixtures.Eventos
 
         public static (CreateEventoDto, EventoDto) PostEvento()
         {
-            var fakerEventodto = new Faker<CreateEventoDto>("pt-br")
+            var fakerEventodto = new Faker<CreateEventoDto>("pt_BR")
                 .RuleFor(l => l.Local, l => l.Name.FullName())
                 .RuleFor(d => d.DataEvento, d => d.Date.Future())
                 .RuleFor(t => t.Tema, t => t.Company.CompanyName())
@@ -115,7 +115,7 @@ namespace ProEventos.Fixtures.Eventos
 
             var eventoDto = new EventoDto()
             {
-                Id = new Faker().Random.Int(1,100),
+                Id = new Faker().Random.Int(1, 100),
                 Local = fakerEventodto.Local,
                 DataEvento = fakerEventodto.DataEvento,
                 Tema = fakerEventodto.Tema,
@@ -125,8 +125,11 @@ namespace ProEventos.Fixtures.Eventos
                 Email = fakerEventodto.Email,
                 CreateAt = DateTime.UtcNow
             };
-            //.RuleFor(e => e.Lotes, new List<LoteDto>());
+
             return (fakerEventodto, eventoDto);
         }
+
+        public static int DeleteEvento() => new Faker().Random.Int(1, 100);
+
     }
 }

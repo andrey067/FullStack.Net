@@ -37,13 +37,23 @@ namespace Helpers.Eventos
             return (mockEventosService, eventoDtoFake);
         }
 
-        public static (Mock<IEventoService>, EventoDto) SetupPostEventos()
+        public static (Mock<IEventoService>, CreateEventoDto, EventoDto) SetupPostEvento()
         {
             var mockEventosService = new Mock<IEventoService>();
             var (createteEventoDto, eventoDto) = EventosFixture.PostEvento();
 
             mockEventosService.Setup(service => service.AddEvento(createteEventoDto)).ReturnsAsync(eventoDto);
-            return (mockEventosService, eventoDto);
+            return (mockEventosService, createteEventoDto, eventoDto);
+        }
+
+        public static (Mock<IEventoService>, int) SetupDeleteEvento(bool deleteStatus)
+        {
+            var mockEventosService = new Mock<IEventoService>();
+            var eventoId = EventosFixture.DeleteEvento();
+
+            mockEventosService.Setup(service => service.DeleteEvento(eventoId)).ReturnsAsync(deleteStatus);
+
+            return (mockEventosService, eventoId);
         }
     }
 }
