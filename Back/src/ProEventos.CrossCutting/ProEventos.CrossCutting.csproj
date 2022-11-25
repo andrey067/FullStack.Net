@@ -16,4 +16,8 @@
     <ProjectReference Include="..\ProEventos.Services\ProEventos.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MappinsConfiguration\Evento\" />
+  </ItemGroup>
+
 </Project>

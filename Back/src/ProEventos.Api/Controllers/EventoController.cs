@@ -55,12 +55,11 @@ namespace ProEventos.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateEvento([FromServices] IEventoService _eventoService, int eventoId, EventoDto evento)
+        public async Task<ActionResult<EventoDto>> UpdateEvento([FromServices] IEventoService _eventoService, UpdateEventoDto evento)
         {
-            var eventos = await _eventoService.DeleteEvento(eventoId);
-            if (!eventos) BadRequest("Erro ao atualizar evento");
-
-            return Ok(eventos);
+            var eventoAtualizado = await _eventoService.UpdateEvento(evento);
+            if (eventoAtualizado == null) BadRequest("Erro ao atualizar evento");
+            return Ok(eventoAtualizado);
         }
     }
 }

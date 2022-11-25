@@ -129,6 +129,37 @@ namespace ProEventos.Fixtures.Eventos
             return (fakerEventodto, eventoDto);
         }
 
+        public static (UpdateEventoDto, EventoDto) PutEvento()
+        {
+            var fakerEventodto = new Faker<UpdateEventoDto>("pt_BR")
+                .RuleFor(l => l.Id, l => l.Random.Int(1, 100))
+                .RuleFor(l => l.Local, l => l.Name.FullName())
+                .RuleFor(d => d.DataEvento, d => d.Date.Future())
+                .RuleFor(t => t.Tema, t => t.Company.CompanyName())
+                .RuleFor(qtd => qtd.QtdPessoas, qtd => qtd.Random.Number(0, 100))
+                .RuleFor(img => img.ImagemURL, img => img.Image.DataUri(150, 200))
+                .RuleFor(tel => tel.Telefone, tel => tel.Phone.PhoneNumber())
+                .RuleFor(e => e.Email, e => e.Person.Email)
+                .RuleFor(e => e.CreateAt, DateTime.UtcNow).Generate();
+
+            var eventoDto = new EventoDto()
+            {
+                Id = fakerEventodto.Id,
+                Local = fakerEventodto.Local,
+                DataEvento = fakerEventodto.DataEvento,
+                Tema = fakerEventodto.Tema,
+                QtdPessoas = fakerEventodto.QtdPessoas,
+                ImagemURL = fakerEventodto.ImagemURL,
+                Telefone = fakerEventodto.Telefone,
+                Email = fakerEventodto.Email,
+                CreateAt = fakerEventodto.CreateAt,
+                UpdateAt = new Faker().Date.Future()
+            };
+
+            return (fakerEventodto, eventoDto);
+        }
+
+
         public static int DeleteEvento() => new Faker().Random.Int(1, 100);
 
     }

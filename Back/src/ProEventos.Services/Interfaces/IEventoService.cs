@@ -10,7 +10,7 @@ namespace ProEventos.Interfaces
         Task<EventoDto> Get(int id);
         Task<IEnumerable<EventoDto>> GetAll();
         Task<EventoDto> AddEvento(CreateEventoDto model);
-        Task<EventoDto> UpdateEvento(int eventoId, EventoDto model);
+        Task<EventoDto> UpdateEvento(UpdateEventoDto model);
         Task<bool> DeleteEvento(int eventoId);
         Task<List<EventoDto>> GetAllEventosByTemaAsync(string tema, bool includePalestrante);
         Task<List<EventoDto>> GetAllEventosAsync(bool includePalestrante = false);

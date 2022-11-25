@@ -55,5 +55,15 @@ namespace Helpers.Eventos
 
             return (mockEventosService, eventoId);
         }
+
+        public static (Mock<IEventoService>, UpdateEventoDto, EventoDto) SetupPutEvento()
+        {
+            var mockEventosService = new Mock<IEventoService>();
+            var (updatedEvento, eventodto) = EventosFixture.PutEvento();
+
+            mockEventosService.Setup(service => service.UpdateEvento(updatedEvento)).ReturnsAsync(eventodto);
+
+            return (mockEventosService, updatedEvento, eventodto);
+        }
     }
 }

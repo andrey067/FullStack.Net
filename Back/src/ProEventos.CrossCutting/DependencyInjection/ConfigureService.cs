@@ -3,11 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using ProEventos.Core.Notifications.Implementation;
 using ProEventos.Core.Notifications.Interfaces;
+using ProEventos.CrossCutting.MappinsConfiguration;
 using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services;
 using ProEventos.Services.Dtos;
-using ProEventos.Services.Dtos.Eventos;
 using ProEventos.Services.Interfaces;
 using ProEventos.Services.Services;
 
@@ -25,12 +25,12 @@ namespace ProEventos.CrossCutting.DependencyInjection
         {
             var autoMapperConfig = new MapperConfiguration(configuration =>
             {
-                configuration.CreateMap<CreateEventoDto, EventoDto>();
-                configuration.CreateMap<Evento, EventoDto>().ReverseMap();
+                EventoMappringConfiguration.EventoMapping(configuration);
                 configuration.CreateMap<Lote, LoteDto>().ReverseMap();
                 configuration.CreateMap<Palestrante, PalestranteDto>().ReverseMap();
                 configuration.CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
             });
+
             services.AddSingleton(autoMapperConfig.CreateMapper());
         }
 
