@@ -7,17 +7,22 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ProEventos.Persistence\ProEventos.Persistence.csproj" />
     <ProjectReference Include="..\ProEventos.Domain\ProEventos.Domain.csproj" />
     <ProjectReference Include="..\ProEventos.Services\ProEventos.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MappinsConfiguration\Evento\" />
   </ItemGroup>
 
 </Project>

@@ -105,7 +105,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
             var sut = new EventoController();
 
             //Act
-            var result = await sut.GetById(mockEventosService.Object, eventoDto.Id);
+            var result = await sut.GetById(mockEventosService.Object, eventoDto!.Id);
 
             //Assert
             result.Result.Should().BeOfType<NoContentResult>();

@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using ProEventos.Core.Notifications.Implementation;
 using ProEventos.Core.Notifications.Interfaces;
-using ProEventos.CrossCutting.MappinsConfiguration;
+using ProEventos.CrossCutting.MappinsConfiguration.Evento;
 using ProEventos.Domain.Entities;
 using ProEventos.Interfaces;
 using ProEventos.Services;

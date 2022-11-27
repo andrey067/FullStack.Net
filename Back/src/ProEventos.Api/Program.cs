@@ -1,21 +1,21 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProEventos.Api.Filters;
+using ProEventos.Core.Options.Database;
+using ProEventos.CrossCutting.ContextConfiguration;
 using ProEventos.CrossCutting.DependencyInjection;
-using ProEventos.Persistence;
-using ProEventos.Persistence.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
-ConfigureRepository.ConfigureDependenciesRepository(builder.Services, builder.Configuration);
+ConfigureRepository.Configure(builder.Services);
+DataContextConfiguration.Configure(builder.Services);
 ConfigureService.ConfigureDependenciesServices(builder.Services);
 ConfigureService.RegisterAutoMapper(builder.Services);
 ConfigureService.SwaggerConfiguration(builder.Services);
 ConfigureService.NotificationConfiguration(builder.Services);
 
+builder.Services.ConfigureOptions<DataBaseOptionsSetup>();
 builder.Services.AddCors();
 builder.Services.AddControllers(options =>
 {
@@ -43,18 +43,6 @@ app.UseCors(acess => acess.AllowAnyHeader()
 
 app.MapControllers();
 
-
-using (var service = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-{
-    using (var context = service.ServiceProvider.GetService<DataContext>())
-    {
-        var isMigrationNeeded = context.Database.GetPendingMigrations().Any();
-        if (isMigrationNeeded)
-        {
-            context.Database.Migrate();
-            EventoSeeds.Eventos(context);
-        }
-    }
-}
+DataContextConfiguration.AddSeeds(app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope());
 
 app.Run();

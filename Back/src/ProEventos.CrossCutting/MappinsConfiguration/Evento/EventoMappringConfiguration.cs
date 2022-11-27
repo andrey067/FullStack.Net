@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using ProEventos.Domain.Entities;
+using EventoEntity = ProEventos.Domain.Entities.Evento;
 using ProEventos.Services.Dtos.Eventos;
 
-namespace ProEventos.CrossCutting.MappinsConfiguration
+namespace ProEventos.CrossCutting.MappinsConfiguration.Evento
 {
     public class EventoMappringConfiguration
     {
@@ -10,7 +10,7 @@ namespace ProEventos.CrossCutting.MappinsConfiguration
         {
             configuration.CreateMap<CreateEventoDto, EventoDto>();
             configuration.CreateMap<UpdateEventoDto, EventoDto>();
-            configuration.CreateMap<Evento, EventoDto>().ReverseMap();
+            configuration.CreateMap<EventoEntity, EventoDto>().ReverseMap();
         }
     }
 }

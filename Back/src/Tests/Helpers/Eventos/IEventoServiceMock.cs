@@ -29,12 +29,12 @@ namespace Helpers.Eventos
             return (mockEventosService, eventoDtoFake);
         }
 
-        public static (Mock<IEventoService>, EventoDto?) SetupGetByIdAsync_NotFound()
+        public static (Mock<IEventoService>, EventoDto) SetupGetByIdAsync_NotFound()
         {
             var mockEventosService = new Mock<IEventoService>();
             var eventoDtoFake = EventosFixture.GetEventoDto();
             mockEventosService.Setup(service => service.Get(eventoDtoFake.Id)).ReturnsAsync(() => null);
-            return (mockEventosService, eventoDtoFake);
+            return (mockEventosService, eventoDtoFake!);
         }
 
         public static (Mock<IEventoService>, CreateEventoDto, EventoDto) SetupPostEvento()
