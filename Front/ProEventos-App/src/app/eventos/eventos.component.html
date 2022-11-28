@@ -1,1 +1,51 @@
-<p>eventos works!</p>
+<h2>Eventos</h2>
+<hr>
+<div action="" class="form-inline">
+  <div class="input-group mb-2">
+    <input type="text" class="form-control mform-inliner-2" [(ngModel)]="filtroLista" placeholder="buscar">
+    <button type="submit" class="btn btn-outline-success">Buscar</button>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>
+        <button type="button" class="btn btn-outline-light" (click)="alterarStatusImagem()">
+          {{mostrarImagem ?"Mostrar": "Ocultar" }}
+        </button>
+      </th>
+      <th>#</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoas</th>
+      <!-- <th>Lote</th> -->
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>
+        <img [collapse]="mostrarImagem" [isAnimated]="true" src="{{evento.ImagemURL}}" alt="image"
+          [style.width.px]="150" [style.margin.px]="2">
+      </td>
+      <td>{{evento.Id}}</td>
+      <td>{{evento.Tema}}</td>
+      <td>{{evento.Local}}</td>
+      <td>{{evento.DataEvento}}</td>
+      <td>{{evento.QtdPessoas}}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm m-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Deletar</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="eventos.length === 0 ">
+    <tr>
+      <td>
+        <h4>Nenhum Evento encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>

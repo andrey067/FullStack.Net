@@ -9,7 +9,7 @@ namespace ProEventos.Api.Controllers
 {
     [ApiController]
     [Route("/eventos")]
-    public class EventoController : BaseController
+    public class EventosController : BaseController
     {
         [HttpGet]
         public async Task<ActionResult<List<EventoDto>>> Get([FromServices] IEventoService _eventoService)

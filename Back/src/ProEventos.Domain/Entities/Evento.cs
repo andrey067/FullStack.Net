@@ -6,7 +6,7 @@ namespace ProEventos.Domain.Entities
 {
     public class Evento : BaseEntity
     {
-        public Evento() { }
+        protected Evento() { }
         public Evento(string local, DateTime? dataEvento, string tema, int qtdPessoas, string imagemURL, string telefone, string email)
         {
             Local = local;
@@ -19,21 +19,21 @@ namespace ProEventos.Domain.Entities
             Lotes = new();
             //RedeSociais = new();
             //PalestrantesEventos = new();
+            CreateAt = DateTime.UtcNow;
             _erros = new();
             Validate();
         }
 
-        public string Local { get; set; }
-        public DateTime? DataEvento { get; set; }
-        public string Tema { get; set; }
-        public int QtdPessoas { get; set; }
-        public string ImagemURL { get; set; }
-        public string Telefone { get; set; }
-        public string Email { get; set; }
-        public List<Lote> Lotes { get; set; }
-        public List<RedeSocial> RedeSociais { get; set; }
-        public List<Palestrante_Evento> PalestrantesEventos { get; set; }
-
+        public string Local { get; private set; }
+        public DateTime? DataEvento { get; private set; }
+        public string Tema { get; private set; }
+        public int QtdPessoas { get; private set; }
+        public string ImagemURL { get; private set; }
+        public string Telefone { get; private set; }
+        public string Email { get; private set; }
+        public List<Lote> Lotes { get; private set; }
+        public List<RedeSocial> RedeSociais { get; private set; }
+        public List<Palestrante_Evento> PalestrantesEventos { get; private set; }
         public bool Validate() => Validate(new EventoValidate(), this);
     }
 }

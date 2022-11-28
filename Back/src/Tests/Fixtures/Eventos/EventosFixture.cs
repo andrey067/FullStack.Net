@@ -70,16 +70,15 @@ namespace ProEventos.Fixtures.Eventos
 
             for (var i = 1; i < n; i++)
             {
-                var fakerEvento = new Faker<Evento>()
-                .RuleFor(l => l.Id, i)
-                .RuleFor(l => l.Local, l => l.Name.FullName())
-                .RuleFor(d => d.DataEvento, d => d.Date.Future())
-                .RuleFor(t => t.Tema, t => t.Company.CompanyName())
-                .RuleFor(qtd => qtd.QtdPessoas, qtd => qtd.Random.Number(0, 100))
-                .RuleFor(img => img.ImagemURL, img => img.Image.DataUri(150, 200))
-                .RuleFor(tel => tel.Telefone, tel => tel.Phone.PhoneNumber())
-                .RuleFor(e => e.Email, e => e.Person.Email).Generate();
-                eventos.Add(fakerEvento);
+                var fake = new Faker("pt_BR");
+                var fakeEvento = new Evento(fake.Name.FullName(),
+                                                fake.Date.Future(),
+                                                fake.Company.CompanyName(),
+                                                fake.Random.Number(0, 100),
+                                                fake.Image.DataUri(150, 200),
+                                                fake.Phone.PhoneNumber(),
+                                                fake.Person.Email);
+                eventos.Add(fakeEvento);
             }
 
             eventos.ForEach(evento =>

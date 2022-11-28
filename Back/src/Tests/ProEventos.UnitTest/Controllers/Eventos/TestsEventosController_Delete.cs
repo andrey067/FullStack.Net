@@ -15,7 +15,7 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, eventoId) = IEventoServiceMock.SetupDeleteEvento(true);
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.DeletarEvento(mockEventosService.Object, eventoId);
@@ -32,7 +32,7 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, eventoId) = IEventoServiceMock.SetupDeleteEvento(false);
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.DeletarEvento(mockEventosService.Object, eventoId);

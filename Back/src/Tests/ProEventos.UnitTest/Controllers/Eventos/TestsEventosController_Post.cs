@@ -17,7 +17,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
@@ -34,7 +34,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
@@ -49,7 +49,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeEventoDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);

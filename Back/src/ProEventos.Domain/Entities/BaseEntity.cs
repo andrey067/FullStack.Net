@@ -13,9 +13,9 @@ namespace ProEventos.Domain.Entities
         [Key]
         public int Id { get; private set; }
 
-        private DateTime CreateAt => DateTime.UtcNow;
+        public DateTime? CreateAt { get; internal set; }
 
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdateAt { get; internal set; }
 
         [NotMapped]
         internal List<string> _erros;
@@ -45,6 +45,11 @@ namespace ProEventos.Domain.Entities
             }
 
             return Valid;
+        }
+
+        public void UptadeEntity()
+        {
+            UpdateAt = DateTime.UtcNow;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var mockEventosService = IEventoServiceMock.SetupGetAllEventosAsync_ListEvents();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.Get(mockEventosService.Object);
@@ -35,7 +35,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             Mock<IEventoService>? mockEventosService = IEventoServiceMock.SetupGetAllEventosAsync_ListEmpty();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.Get(mockEventosService.Object);
@@ -52,7 +52,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var mockEventosService = IEventoServiceMock.SetupGetAllEventosAsync_ListEvents();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.Get(mockEventosService.Object);
@@ -67,7 +67,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var mockEventosService = IEventoServiceMock.SetupGetAllEventosAsync_ListEvents();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.Get(mockEventosService.Object);
@@ -85,7 +85,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, eventodto) = IEventoServiceMock.SetupGetByIdAsync();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.GetById(mockEventosService.Object, eventodto.Id);
@@ -102,7 +102,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, eventoDto) = IEventoServiceMock.SetupGetByIdAsync_NotFound();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.GetById(mockEventosService.Object, eventoDto!.Id);
@@ -119,7 +119,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, eventoDto) = IEventoServiceMock.SetupGetByIdAsync();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.GetById(mockEventosService.Object, eventoDto.Id);
@@ -134,7 +134,7 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, eventoDto) = IEventoServiceMock.SetupGetByIdAsync();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.GetById(mockEventosService.Object, eventoDto.Id);

@@ -15,7 +15,7 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, updatedEvento, eventoDto) = IEventoServiceMock.SetupPutEvento();
-            var sut = new EventoController();
+            var sut = new EventosController();
 
             //Act
             var result = await sut.UpdateEvento(mockEventosService.Object, updatedEvento);
