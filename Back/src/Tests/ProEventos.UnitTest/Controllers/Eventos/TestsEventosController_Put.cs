@@ -2,7 +2,10 @@
 using Helpers.Eventos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 using ProEventos.Api.Controllers;
+using ProEventos.Core.Notifications.Interfaces;
+using ProEventos.Core.Notifications;
 using Xunit;
 
 namespace ProEventos.UnitTest.Controllers.Eventos
@@ -15,7 +18,8 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, updatedEvento, eventoDto) = IEventoServiceMock.SetupPutEvento();
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.UpdateEvento(mockEventosService.Object, updatedEvento);

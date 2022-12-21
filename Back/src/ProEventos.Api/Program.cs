@@ -17,6 +17,8 @@ ConfigureService.NotificationConfiguration(builder.Services);
 
 builder.Services.ConfigureOptions<DataBaseOptionsSetup>();
 builder.Services.AddCors();
+
+
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add<ResponseFilter>();
@@ -46,3 +48,4 @@ app.MapControllers();
 DataContextConfiguration.AddSeeds(app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope());
 
 app.Run();
+public partial class Program { }

@@ -23,4 +23,8 @@
     <ProjectReference Include="..\ProEventos.CrossCutting\ProEventos.CrossCutting.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="DependencyValidations.Tests" />
+  </ItemGroup>
+
 </Project>

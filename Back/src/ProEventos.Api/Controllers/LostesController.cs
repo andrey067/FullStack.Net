@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProEventos.Core.Notifications.Interfaces;
+using ProEventos.Core.Notifications;
 using ProEventos.Services.Dtos;
 using ProEventos.Services.Interfaces;
 using System;
@@ -14,10 +16,11 @@ namespace ProEventos.Api.Controllers
     {
         private readonly ILotesService _loteService;
 
-        public LostesController(ILotesService loteService)
+        public LostesController(IDomainNotificationHandlerAsync<DomainNotification> notificacaoDeDominio, ILotesService loteService) : base(notificacaoDeDominio)
         {
             _loteService = loteService;
         }
+
 
         [HttpGet("{eventoId}")]
         public async Task<IActionResult> Get(int eventoId)

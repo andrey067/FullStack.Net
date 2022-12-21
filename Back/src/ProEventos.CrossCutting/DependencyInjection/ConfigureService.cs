@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ProEventos.Core.Notifications;
 using ProEventos.Core.Notifications.Implementation;
 using ProEventos.Core.Notifications.Interfaces;
 using ProEventos.CrossCutting.MappinsConfiguration.Evento;
@@ -17,8 +18,9 @@ namespace ProEventos.CrossCutting.DependencyInjection
     {
         public static void ConfigureDependenciesServices(IServiceCollection services)
         {
-            services.AddTransient<IEventoService, EventoService>();
-            services.AddTransient<ILotesService, LotesServices>();
+            services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<ILotesService, LotesServices>();
+            services.AddScoped(typeof(IDomainNotificationHandlerAsync<DomainNotification>), typeof(DomainNotificationHandlerAsync));
         }
 
         public static void RegisterAutoMapper(IServiceCollection services)

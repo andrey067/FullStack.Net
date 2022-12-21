@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using ProEventos.Core.Notifications;
+using ProEventos.Core.Notifications.Enums;
 using ProEventos.Core.Notifications.Interfaces;
 using ProEventos.Domain.Entities;
 using ProEventos.Domain.Interfaces;
@@ -17,13 +20,15 @@ namespace ProEventos.Services
         private readonly IEventoRepository _eventoRepository;
         private readonly IMapper _mapper;
         private readonly INotifications _notifications;
+        private readonly IDomainNotificationHandlerAsync<DomainNotification> _domainNotificationHandlerAsync;
 
-        public EventoService(IRepository<Evento> repository, IEventoRepository eventoRepository, IMapper mapper, INotifications notifications)
+        public EventoService(IRepository<Evento> repository, IEventoRepository eventoRepository, IMapper mapper, INotifications notifications, IDomainNotificationHandlerAsync<DomainNotification> domainNotificationHandlerAsync)
         {
             _repository = repository;
             _eventoRepository = eventoRepository;
             _mapper = mapper;
-            _notifications = notifications;
+            _domainNotificationHandlerAsync = domainNotificationHandlerAsync;
+            //_notifications = notifications;
         }
 
         public async Task<EventoDto> AddEvento(CreateEventoDto eventDto)
@@ -31,7 +36,8 @@ namespace ProEventos.Services
             var entity = _mapper.Map<Evento>(eventDto);
             if (entity.Invalid)
             {
-                _notifications.AddNotification(entity.Errors);
+                //_domainNotificationHandlerAsync.HandleAsync(entity.Errors);
+                entity.Errors.ToList().ForEach(mensagem => _domainNotificationHandlerAsync.HandleAsync((new DomainNotification(TipoDeNotificacao.ErroDeServico, mensagem))));
                 return null;
             }
 
@@ -73,7 +79,7 @@ namespace ProEventos.Services
 
             if (!eventoAtualizar.Valid)
             {
-                _notifications.AddNotification(eventoAtualizar.Errors);
+                //_notifications.AddNotification(eventoAtualizar.Errors);
                 return null;
             }
 

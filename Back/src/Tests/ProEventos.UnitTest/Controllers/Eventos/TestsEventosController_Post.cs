@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ProEventos.Api.Controllers;
+using ProEventos.Core.Notifications.Interfaces;
+using ProEventos.Core.Notifications;
 using ProEventos.Services.Dtos.Eventos;
 using Xunit;
 
@@ -17,7 +19,8 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
@@ -34,7 +37,8 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);
@@ -49,7 +53,8 @@ namespace ProEventos.UnitTest.Eventos.Controllers
         {
             //Arrange
             var (mockEventosService, createEventoDto, fakeEventoDto) = IEventoServiceMock.SetupPostEvento();
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.InsertEvento(mockEventosService.Object, createEventoDto);

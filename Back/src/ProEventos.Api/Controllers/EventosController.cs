@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProEventos.Core.Notifications;
+using ProEventos.Core.Notifications.Interfaces;
 using ProEventos.Interfaces;
 using ProEventos.Services.Dtos.Eventos;
 
@@ -11,6 +13,8 @@ namespace ProEventos.Api.Controllers
     [Route("/eventos")]
     public class EventosController : BaseController
     {
+        public EventosController(IDomainNotificationHandlerAsync<DomainNotification> notificacaoDeDominio) : base(notificacaoDeDominio) { }
+
         [HttpGet]
         public async Task<ActionResult<List<EventoDto>>> Get([FromServices] IEventoService _eventoService)
         {

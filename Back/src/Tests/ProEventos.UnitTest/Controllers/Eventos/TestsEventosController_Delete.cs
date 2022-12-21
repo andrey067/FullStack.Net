@@ -3,7 +3,10 @@ using Helpers.Eventos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Api.Controllers;
+using ProEventos.Core.Notifications.Interfaces;
+using ProEventos.Core.Notifications;
 using Xunit;
+using Moq;
 
 namespace ProEventos.UnitTest.Controllers.Eventos
 {
@@ -15,7 +18,8 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, eventoId) = IEventoServiceMock.SetupDeleteEvento(true);
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.DeletarEvento(mockEventosService.Object, eventoId);
@@ -32,7 +36,8 @@ namespace ProEventos.UnitTest.Controllers.Eventos
         {
             //Arrange
             var (mockEventosService, eventoId) = IEventoServiceMock.SetupDeleteEvento(false);
-            var sut = new EventosController();
+            var domainNotificationMock = new Mock<IDomainNotificationHandlerAsync<DomainNotification>>();
+            var sut = new EventosController(domainNotificationMock.Object);
 
             //Act
             var result = await sut.DeletarEvento(mockEventosService.Object, eventoId);
